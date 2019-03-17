@@ -79,20 +79,33 @@
 
 
 
-<meta name="description" content="Jmeter响应断言详解 响应断言 ：对服务器的响应进行断言校验 Apply to应用范围: main sample and sub sample, main sample only , sub-sample only , jmeter variable 关于应用范围，我们大多数勾选“main sample only” 就足够了，因为我们一个请求，实质上只有一个请求。但是当我们发一个请求时，可以触">
+<meta name="description" content="Jmeter接口之Json数据获取API接口及Json数据打开Fiddler 抓取post请求及Json数据，如图：从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据 Jmeter接口测试流程1.打开Jmeter新建线程组 2.添加Http请求： 添加Http请求中，参数如下，这些数据都是可以种Fiddler种抓到的数据进行填写">
 <meta name="keywords" content="Jmeter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jmeter响应断言详解">
-<meta property="og:url" content="http://yoursite.com/2019/03/02/Jmeter响应断言详解/index.html">
+<meta property="og:title" content="Jmeter接口之Json数据">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/Jmeter接口之Json数据/index.html">
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
-<meta property="og:description" content="Jmeter响应断言详解 响应断言 ：对服务器的响应进行断言校验 Apply to应用范围: main sample and sub sample, main sample only , sub-sample only , jmeter variable 关于应用范围，我们大多数勾选“main sample only” 就足够了，因为我们一个请求，实质上只有一个请求。但是当我们发一个请求时，可以触">
+<meta property="og:description" content="Jmeter接口之Json数据获取API接口及Json数据打开Fiddler 抓取post请求及Json数据，如图：从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据 Jmeter接口测试流程1.打开Jmeter新建线程组 2.添加Http请求： 添加Http请求中，参数如下，这些数据都是可以种Fiddler种抓到的数据进行填写">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/jmeter%E7%95%8C%E9%9D%A2.png">
-<meta property="og:updated_time" content="2019-03-05T01:05:56.296Z">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/0_fiddler%E6%8A%93%E5%8F%96%E4%B8%8B%E5%8D%95%E6%8E%A5%E5%8F%A3.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/1_%E6%B7%BB%E5%8A%A0%E7%BA%BF%E7%A8%8B%E7%BB%84.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/2_%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%82.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/http%E8%AF%B7%E6%B1%82.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0http%E6%B6%88%E6%81%AF%E5%A4%B4.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0%E6%B6%88%E6%81%AF%E5%A4%B4%E4%B8%BB%E8%A6%81%E6%95%B0%E6%8D%AE.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%B7%BB%E5%8A%A0%E7%9B%B8%E5%BA%94%E6%96%AD%E8%A8%80.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%96%AD%E8%A8%80%E8%BF%94%E5%9B%9E%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8C%85%E5%90%AB%E6%88%90%E5%8A%9F.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E5%90%84%E7%B1%BB%E7%9B%91%E5%90%AC%E5%99%A8.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E7%9B%91%E5%90%AC%E5%99%A8.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E8%AF%B7%E6%B1%82.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E5%93%8D%E5%BA%94.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/7_%E6%96%AD%E8%A8%80%E7%BB%93%E6%9E%9C.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/8_%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A.jpg">
+<meta property="og:updated_time" content="2019-03-17T06:13:19.148Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jmeter响应断言详解">
-<meta name="twitter:description" content="Jmeter响应断言详解 响应断言 ：对服务器的响应进行断言校验 Apply to应用范围: main sample and sub sample, main sample only , sub-sample only , jmeter variable 关于应用范围，我们大多数勾选“main sample only” 就足够了，因为我们一个请求，实质上只有一个请求。但是当我们发一个请求时，可以触">
-<meta name="twitter:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/jmeter%E7%95%8C%E9%9D%A2.png">
+<meta name="twitter:title" content="Jmeter接口之Json数据">
+<meta name="twitter:description" content="Jmeter接口之Json数据获取API接口及Json数据打开Fiddler 抓取post请求及Json数据，如图：从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据 Jmeter接口测试流程1.打开Jmeter新建线程组 2.添加Http请求： 添加Http请求中，参数如下，这些数据都是可以种Fiddler种抓到的数据进行填写">
+<meta name="twitter:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/0_fiddler%E6%8A%93%E5%8F%96%E4%B8%8B%E5%8D%95%E6%8E%A5%E5%8F%A3.jpg">
 
 
 
@@ -122,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/02/Jmeter响应断言详解/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/17/Jmeter接口之Json数据/">
 
 
 
 
 
-  <title>Jmeter响应断言详解 | 陈宏杰's 私人小巢</title>
+  <title>Jmeter接口之Json数据 | 陈宏杰's 私人小巢</title>
   
 
 
@@ -265,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/02/Jmeter响应断言详解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/Jmeter接口之Json数据/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ChenHJ">
@@ -282,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Jmeter响应断言详解</h1>
+          <h1 class="post-title" itemprop="name headline">Jmeter接口之Json数据</h1>
         
 
         <div class="post-meta">
@@ -294,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-02T23:15:32+08:00">
-                2019-03-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T12:37:34+08:00">
+                2019-03-17
               </time>
             
 
@@ -354,54 +367,31 @@
       
 
       
-        <h1 id="Jmeter响应断言详解"><a href="#Jmeter响应断言详解" class="headerlink" title="Jmeter响应断言详解"></a>Jmeter响应断言详解</h1><p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/jmeter%E7%95%8C%E9%9D%A2.png" alt></p>
-<h2 id="响应断言-："><a href="#响应断言-：" class="headerlink" title="响应断言 ："></a>响应断言 ：</h2><p>对服务器的响应进行断言校验</p>
-<h2 id="Apply-to"><a href="#Apply-to" class="headerlink" title="Apply to"></a>Apply to</h2><p>应用范围: main sample and sub sample, main sample only , sub-sample only , jmeter variable</p>
-<p>关于应用范围，我们大多数勾选“main sample only” 就足够了，因为我们一个请求，实质上只有一个请求。但是当我们发一个请求时，可以触发多个服务器请求，类似于ajax那种，那么就有main sample  和 sub-sample之分了。此外，对于有重定向的请求，并且勾选了“跟随重定向”， 那么这两个请求都是 sub-sample，重定向后的请求（第二个请求）就是main-sample,关于main sample and sub sample，有兴趣的可以看看这个帖子:<a href="http://stackoverflow.com/questions/28214936/jmeter-in-which-scenario-i-can-use-main-sample-or-sub-sample-or-both-for-te" target="_blank" rel="noopener">帖子</a></p>
-<h2 id="响应字段"><a href="#响应字段" class="headerlink" title="响应字段"></a>响应字段</h2><p>应用范围：响应文本，Document(Text)，url样本，响应代码，响应信息，Response Header，ignore status</p>
-<ul>
-<li><p>响应文本: 服务器响应文本，一般普通http响应，都勾选这个。</p>
-</li>
-<li><p>Document(Text)：一切Apache Tika 支持服务器响应，包括文本响应，还支持 PDF, Office, Audio, Video formats。jmeter会用Apache Tika 去解析服务器响应内容，会很耗内存，而且也很容易解析失败。所以一般普通http请求，不要选择这个。</p>
-</li>
-<li><p>url样本：是对sample的url进行断言。如果请求没有重定向（302），那么就是这个就是请求url。 如果有重定向（且跟随重定向），那么url就包含请求url 和 重定向url</p>
-</li>
-<li><p>响应代码：http响应代码，如101,200,302,404,501等。但当我们要验证404,501等http响应代码时，需要勾选“ ignore status”。因为当http 响应代码为400,500时，jmeter默认这个请求时失败的。</p>
-</li>
-<li><p>响应信息：http响应代码对应的响应信息，例如：OK, Found</p>
-<pre><code>HTTP/1.1 200 Ok   
-HTTP/1.1 302 Found
-</code></pre></li>
-<li><p>Response Header : 响应头信息，例如</p>
-<pre><code>Server: Tengine
-Date: Thu, 12 Mar 2015 09:43:52 GMT
-Content-Type: text/html
-Content-Length: 260
-Connection: close
-Location: http://www.baidu.com/404.html
-</code></pre></li>
-</ul>
-<h2 id="模式匹配规则"><a href="#模式匹配规则" class="headerlink" title="模式匹配规则"></a>模式匹配规则</h2><h3 id="包括：返回结果包括你指定的内容，支持正则匹配"><a href="#包括：返回结果包括你指定的内容，支持正则匹配" class="headerlink" title="包括：返回结果包括你指定的内容，支持正则匹配"></a>包括：返回结果包括你指定的内容，支持正则匹配</h3><pre><code>　　例如：
-　　响应字段为： 响应文本
-　　模式匹配规则：匹配
-　　断言为：1、invalid    2、[a-z]+
-　　当返回值为：{&quot;msg&quot;:&quot;channel invalid.&quot;} ， 这两个断言都是ok的，返回true
-</code></pre><h3 id="匹配："><a href="#匹配：" class="headerlink" title="匹配："></a>匹配：</h3><p>(1) 相当于 equals 。当返回值固定时，可以返回值做断言，效果和equals相同</p>
-<p>(2) 正则匹配 。 用正则表达式匹配返回结果，但必须全部匹配。 即正则表达式必须能匹配整个返回值，而不是返回值的一部分。</p>
-<pre><code>　　例如：
-　　响应字段为： 响应文本
-　　模式匹配规则：匹配
-　　断言为：1、{&quot;msg&quot;:&quot;channel invalid.&quot;}   2、\{&quot;msg&quot;:&quot;[a-z]+ invalid\.&quot;\}  ， 3、[a-z]+
-　　当返回值为：{&quot;msg&quot;:&quot;channel invalid.&quot;}   ，断言1 2 是ok的， 断言3是false
-　　当返回值为：{&quot;msg&quot;:&quot;channel invalid.&quot;} ， 断言1 3是false， 断言2才是ok的。
-　　原因是，断言1 只能用于equals，而断言3 只匹配了返回值部分，而不是全部匹配。
-</code></pre><h3 id="Equals-返回结果与你指定断言完全一致"><a href="#Equals-返回结果与你指定断言完全一致" class="headerlink" title="Equals : 返回结果与你指定断言完全一致"></a>Equals : 返回结果与你指定断言完全一致</h3><h3 id="SubString：与-“包括”差不多，都是指返回结果包括你指定的内容，但是subString不支持正则字符串"><a href="#SubString：与-“包括”差不多，都是指返回结果包括你指定的内容，但是subString不支持正则字符串" class="headerlink" title="SubString：与 “包括”差不多，都是指返回结果包括你指定的内容，但是subString不支持正则字符串"></a>SubString：与 “包括”差不多，都是指返回结果包括你指定的内容，但是subString不支持正则字符串</h3><pre><code>　　例如：
-　　响应字段为： 响应文本
-　　模式匹配规则：匹配
-　　断言为：1、invalid    2、[a-z]+
-　　当返回值为：{&quot;msg&quot;:&quot;channel invalid.&quot;} ， 断言1返回true， 但断言2返回false
-　　否：就相当于取反。 如果上面断言结果为true，勾选“否”后，最终断言结果为false。如果上面断言结果为false，勾选“否”后，则最终断言结果为 true。
-</code></pre>
+        <h1 id="Jmeter接口之Json数据"><a href="#Jmeter接口之Json数据" class="headerlink" title="Jmeter接口之Json数据"></a>Jmeter接口之Json数据</h1><h2 id="获取API接口及Json数据"><a href="#获取API接口及Json数据" class="headerlink" title="获取API接口及Json数据"></a>获取API接口及Json数据</h2><p>打开Fiddler 抓取post请求及Json数据，如图：<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/0_fiddler%E6%8A%93%E5%8F%96%E4%B8%8B%E5%8D%95%E6%8E%A5%E5%8F%A3.jpg" alt><br>从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据</p>
+<h2 id="Jmeter接口测试流程"><a href="#Jmeter接口测试流程" class="headerlink" title="Jmeter接口测试流程"></a>Jmeter接口测试流程</h2><p>1.打开Jmeter新建线程组<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/1_%E6%B7%BB%E5%8A%A0%E7%BA%BF%E7%A8%8B%E7%BB%84.jpg" alt></p>
+<p>2.添加Http请求：<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/2_%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%82.jpg" alt></p>
+<p>添加Http请求中，参数如下，这些数据都是可以种Fiddler种抓到的数据进行填写</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/http%E8%AF%B7%E6%B1%82.jpg" alt></p>
+<p>3.添加Http消息头管理器，存储mToken参数</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0http%E6%B6%88%E6%81%AF%E5%A4%B4.jpg" alt></p>
+<p>4.添加消息头信息</p>
+<p>从Fiddler总复制请求头信息，粘贴至消息头管理器中</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0%E6%B6%88%E6%81%AF%E5%A4%B4%E4%B8%BB%E8%A6%81%E6%95%B0%E6%8D%AE.jpg" alt></p>
+<p>5.添加响应断言</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%B7%BB%E5%8A%A0%E7%9B%B8%E5%BA%94%E6%96%AD%E8%A8%80.jpg" alt></p>
+<p>填写断言信息：<br>可以看到响应数据中包含“成功”，可以从通过包含成功进行断言</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%96%AD%E8%A8%80%E8%BF%94%E5%9B%9E%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8C%85%E5%90%AB%E6%88%90%E5%8A%9F.jpg" alt></p>
+<p>6.添加监听器</p>
+<p>主要有查看结果树、断言结果、聚合报告</p>
+<p>添加结果树：<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E5%90%84%E7%B1%BB%E7%9B%91%E5%90%AC%E5%99%A8.jpg" alt></p>
+<p>添加断言结果：</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E7%9B%91%E5%90%AC%E5%99%A8.jpg" alt></p>
+<p>7.查看测试结果：<br>查看结果树请求及响应数据<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E8%AF%B7%E6%B1%82.jpg" alt></p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E5%93%8D%E5%BA%94.jpg" alt><br>查看断言结果：</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/7_%E6%96%AD%E8%A8%80%E7%BB%93%E6%9E%9C.jpg" alt></p>
+<p>8.查看聚合报告：</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/8_%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A.jpg" alt></p>
+
       
     </div>
     
@@ -431,8 +421,8 @@ Location: http://www.baidu.com/404.html
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/28/优秀博客推荐/" rel="next" title="优秀博客推荐">
-                <i class="fa fa-chevron-left"></i> 优秀博客推荐
+              <a href="/2019/03/09/优秀资源链接/" rel="next" title="优秀资源链接">
+                <i class="fa fa-chevron-left"></i> 优秀资源链接
               </a>
             
           </div>
@@ -441,8 +431,8 @@ Location: http://www.baidu.com/404.html
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/04/如何搭建测试环境/" rel="prev" title="如何搭建测试环境">
-                如何搭建测试环境 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/17/Jmeter接口之代理服务器录制脚本/" rel="prev" title="Jmeter接口之代理服务器录制脚本">
+                Jmeter接口之代理服务器录制脚本 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -577,7 +567,7 @@ Location: http://www.baidu.com/404.html
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter响应断言详解"><span class="nav-number">1.</span> <span class="nav-text">Jmeter响应断言详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应断言-："><span class="nav-number">1.1.</span> <span class="nav-text">响应断言 ：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apply-to"><span class="nav-number">1.2.</span> <span class="nav-text">Apply to</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应字段"><span class="nav-number">1.3.</span> <span class="nav-text">响应字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模式匹配规则"><span class="nav-number">1.4.</span> <span class="nav-text">模式匹配规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#包括：返回结果包括你指定的内容，支持正则匹配"><span class="nav-number">1.4.1.</span> <span class="nav-text">包括：返回结果包括你指定的内容，支持正则匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配："><span class="nav-number">1.4.2.</span> <span class="nav-text">匹配：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Equals-返回结果与你指定断言完全一致"><span class="nav-number">1.4.3.</span> <span class="nav-text">Equals : 返回结果与你指定断言完全一致</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SubString：与-“包括”差不多，都是指返回结果包括你指定的内容，但是subString不支持正则字符串"><span class="nav-number">1.4.4.</span> <span class="nav-text">SubString：与 “包括”差不多，都是指返回结果包括你指定的内容，但是subString不支持正则字符串</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter接口之Json数据"><span class="nav-number">1.</span> <span class="nav-text">Jmeter接口之Json数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取API接口及Json数据"><span class="nav-number">1.1.</span> <span class="nav-text">获取API接口及Json数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jmeter接口测试流程"><span class="nav-number">1.2.</span> <span class="nav-text">Jmeter接口测试流程</span></a></li></ol></li></ol></div>
             
 
           </div>
