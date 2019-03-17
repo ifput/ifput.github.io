@@ -79,27 +79,33 @@
 
 
 
-<meta name="description" content="Jmeter接口之代理服务器录制脚本Jmeter设置：1.添加代理服务器  2.添加HTTP请求默认值  3.HTTP请求默认值设置  4.代理服务器设置  浏览器设置1.Google浏览器查找设置  2.Google浏览器代理设置  启动Jmeter进行录制 访问需要测试的地址，测试完成点击结束按钮，录制的脚本会在线程组内">
+<meta name="description" content="Jmeter接口之JSON获取API接口及Json数据打开Fiddler 抓取post请求及Json数据，如图：从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据 Jmeter接口测试流程1.打开Jmeter新建线程组 2.添加Http请求： 添加Http请求中，参数如下，这些数据都是可以种Fiddler种抓到的数据进行填写  3.">
 <meta name="keywords" content="Jmeter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jmeter接口之代理服务器录制脚本">
-<meta property="og:url" content="http://yoursite.com/2019/03/17/Jmeter接口之代理服务器录制脚本/index.html">
+<meta property="og:title" content="Jmeter接口之JSON">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/Jmeter接口之JSON/index.html">
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
-<meta property="og:description" content="Jmeter接口之代理服务器录制脚本Jmeter设置：1.添加代理服务器  2.添加HTTP请求默认值  3.HTTP请求默认值设置  4.代理服务器设置  浏览器设置1.Google浏览器查找设置  2.Google浏览器代理设置  启动Jmeter进行录制 访问需要测试的地址，测试完成点击结束按钮，录制的脚本会在线程组内">
+<meta property="og:description" content="Jmeter接口之JSON获取API接口及Json数据打开Fiddler 抓取post请求及Json数据，如图：从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据 Jmeter接口测试流程1.打开Jmeter新建线程组 2.添加Http请求： 添加Http请求中，参数如下，这些数据都是可以种Fiddler种抓到的数据进行填写  3.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/1_%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8.png">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/2_%E6%B7%BB%E5%8A%A0%E8%AF%B7%E6%B1%82%E9%BB%98%E8%AE%A4%E5%80%BC.png">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/3_HTTP%E8%AF%B7%E6%B1%82%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE.png">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/4_HTTP%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE.png">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/5_Googles%E8%AE%BE%E7%BD%AE%E7%95%8C%E9%9D%A2%E6%90%9C%E7%B4%A2%E4%BB%A3%E7%90%86.png">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/6_%E8%AE%BE%E7%BD%AE%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BB%A3%E7%90%86.png">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/7_%E5%90%AF%E5%8A%A8%E4%BB%A3%E7%90%86.png">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/8_%E7%BB%93%E6%9D%9F%E5%BD%95%E5%88%B6.png">
-<meta property="og:updated_time" content="2019-03-17T06:51:45.526Z">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/0_fiddler%E6%8A%93%E5%8F%96%E4%B8%8B%E5%8D%95%E6%8E%A5%E5%8F%A3.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/1_%E6%B7%BB%E5%8A%A0%E7%BA%BF%E7%A8%8B%E7%BB%84.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/2_%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%82.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/http%E8%AF%B7%E6%B1%82.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0http%E6%B6%88%E6%81%AF%E5%A4%B4.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0%E6%B6%88%E6%81%AF%E5%A4%B4%E4%B8%BB%E8%A6%81%E6%95%B0%E6%8D%AE.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%B7%BB%E5%8A%A0%E7%9B%B8%E5%BA%94%E6%96%AD%E8%A8%80.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%96%AD%E8%A8%80%E8%BF%94%E5%9B%9E%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8C%85%E5%90%AB%E6%88%90%E5%8A%9F.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E5%90%84%E7%B1%BB%E7%9B%91%E5%90%AC%E5%99%A8.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E7%9B%91%E5%90%AC%E5%99%A8.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E8%AF%B7%E6%B1%82.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E5%93%8D%E5%BA%94.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/7_%E6%96%AD%E8%A8%80%E7%BB%93%E6%9E%9C.jpg">
+<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/8_%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A.jpg">
+<meta property="og:updated_time" content="2019-03-17T08:50:06.512Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jmeter接口之代理服务器录制脚本">
-<meta name="twitter:description" content="Jmeter接口之代理服务器录制脚本Jmeter设置：1.添加代理服务器  2.添加HTTP请求默认值  3.HTTP请求默认值设置  4.代理服务器设置  浏览器设置1.Google浏览器查找设置  2.Google浏览器代理设置  启动Jmeter进行录制 访问需要测试的地址，测试完成点击结束按钮，录制的脚本会在线程组内">
-<meta name="twitter:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/1_%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8.png">
+<meta name="twitter:title" content="Jmeter接口之JSON">
+<meta name="twitter:description" content="Jmeter接口之JSON获取API接口及Json数据打开Fiddler 抓取post请求及Json数据，如图：从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据 Jmeter接口测试流程1.打开Jmeter新建线程组 2.添加Http请求： 添加Http请求中，参数如下，这些数据都是可以种Fiddler种抓到的数据进行填写  3.">
+<meta name="twitter:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/0_fiddler%E6%8A%93%E5%8F%96%E4%B8%8B%E5%8D%95%E6%8E%A5%E5%8F%A3.jpg">
 
 
 
@@ -129,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/17/Jmeter接口之代理服务器录制脚本/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/17/Jmeter接口之JSON/">
 
 
 
 
 
-  <title>Jmeter接口之代理服务器录制脚本 | 陈宏杰's 私人小巢</title>
+  <title>Jmeter接口之JSON | 陈宏杰's 私人小巢</title>
   
 
 
@@ -272,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/Jmeter接口之代理服务器录制脚本/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/Jmeter接口之JSON/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ChenHJ">
@@ -289,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Jmeter接口之代理服务器录制脚本</h1>
+          <h1 class="post-title" itemprop="name headline">Jmeter接口之JSON</h1>
         
 
         <div class="post-meta">
@@ -301,7 +307,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T14:15:08+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T12:37:34+08:00">
                 2019-03-17
               </time>
             
@@ -361,21 +367,30 @@
       
 
       
-        <h1 id="Jmeter接口之代理服务器录制脚本"><a href="#Jmeter接口之代理服务器录制脚本" class="headerlink" title="Jmeter接口之代理服务器录制脚本"></a>Jmeter接口之代理服务器录制脚本</h1><h2 id="Jmeter设置："><a href="#Jmeter设置：" class="headerlink" title="Jmeter设置："></a>Jmeter设置：</h2><p>1.添加代理服务器</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/1_%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt></p>
-<p>2.添加HTTP请求默认值</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/2_%E6%B7%BB%E5%8A%A0%E8%AF%B7%E6%B1%82%E9%BB%98%E8%AE%A4%E5%80%BC.png" alt></p>
-<p>3.HTTP请求默认值设置</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/3_HTTP%E8%AF%B7%E6%B1%82%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE.png" alt></p>
-<p>4.代理服务器设置</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/4_HTTP%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE.png" alt></p>
-<h2 id="浏览器设置"><a href="#浏览器设置" class="headerlink" title="浏览器设置"></a>浏览器设置</h2><p>1.Google浏览器查找设置</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/5_Googles%E8%AE%BE%E7%BD%AE%E7%95%8C%E9%9D%A2%E6%90%9C%E7%B4%A2%E4%BB%A3%E7%90%86.png" alt></p>
-<p>2.Google浏览器代理设置</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/6_%E8%AE%BE%E7%BD%AE%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BB%A3%E7%90%86.png" alt></p>
-<h2 id="启动Jmeter进行录制"><a href="#启动Jmeter进行录制" class="headerlink" title="启动Jmeter进行录制"></a>启动Jmeter进行录制</h2><p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/7_%E5%90%AF%E5%8A%A8%E4%BB%A3%E7%90%86.png" alt></p>
-<p>访问需要测试的地址，测试完成点击结束按钮，录制的脚本会在线程组内</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E4%BB%A3%E7%90%86/8_%E7%BB%93%E6%9D%9F%E5%BD%95%E5%88%B6.png" alt></p>
+        <h1 id="Jmeter接口之JSON"><a href="#Jmeter接口之JSON" class="headerlink" title="Jmeter接口之JSON"></a>Jmeter接口之JSON</h1><h2 id="获取API接口及Json数据"><a href="#获取API接口及Json数据" class="headerlink" title="获取API接口及Json数据"></a>获取API接口及Json数据</h2><p>打开Fiddler 抓取post请求及Json数据，如图：<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/0_fiddler%E6%8A%93%E5%8F%96%E4%B8%8B%E5%8D%95%E6%8E%A5%E5%8F%A3.jpg" alt><br>从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据</p>
+<h2 id="Jmeter接口测试流程"><a href="#Jmeter接口测试流程" class="headerlink" title="Jmeter接口测试流程"></a>Jmeter接口测试流程</h2><p>1.打开Jmeter新建线程组<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/1_%E6%B7%BB%E5%8A%A0%E7%BA%BF%E7%A8%8B%E7%BB%84.jpg" alt></p>
+<p>2.添加Http请求：<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/2_%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%82.jpg" alt></p>
+<p>添加Http请求中，参数如下，这些数据都是可以种Fiddler种抓到的数据进行填写</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/http%E8%AF%B7%E6%B1%82.jpg" alt></p>
+<p>3.添加Http消息头管理器，存储mToken参数</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0http%E6%B6%88%E6%81%AF%E5%A4%B4.jpg" alt></p>
+<p>4.添加消息头信息</p>
+<p>从Fiddler总复制请求头信息，粘贴至消息头管理器中</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0%E6%B6%88%E6%81%AF%E5%A4%B4%E4%B8%BB%E8%A6%81%E6%95%B0%E6%8D%AE.jpg" alt></p>
+<p>5.添加响应断言</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%B7%BB%E5%8A%A0%E7%9B%B8%E5%BA%94%E6%96%AD%E8%A8%80.jpg" alt></p>
+<p>填写断言信息：<br>可以看到响应数据中包含“成功”，可以从通过包含成功进行断言</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%96%AD%E8%A8%80%E8%BF%94%E5%9B%9E%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8C%85%E5%90%AB%E6%88%90%E5%8A%9F.jpg" alt></p>
+<p>6.添加监听器</p>
+<p>主要有查看结果树、断言结果、聚合报告</p>
+<p>添加结果树：<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E5%90%84%E7%B1%BB%E7%9B%91%E5%90%AC%E5%99%A8.jpg" alt></p>
+<p>添加断言结果：</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E7%9B%91%E5%90%AC%E5%99%A8.jpg" alt></p>
+<p>7.查看测试结果：<br>查看结果树请求及响应数据<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E8%AF%B7%E6%B1%82.jpg" alt></p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E5%93%8D%E5%BA%94.jpg" alt><br>查看断言结果：</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/7_%E6%96%AD%E8%A8%80%E7%BB%93%E6%9E%9C.jpg" alt></p>
+<p>8.查看聚合报告：</p>
+<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/8_%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A.jpg" alt></p>
 
       
     </div>
@@ -406,8 +421,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/17/Jmeter接口之JSON/" rel="next" title="Jmeter接口之JSON">
-                <i class="fa fa-chevron-left"></i> Jmeter接口之JSON
+              <a href="/2019/03/09/优秀资源链接/" rel="next" title="优秀资源链接">
+                <i class="fa fa-chevron-left"></i> 优秀资源链接
               </a>
             
           </div>
@@ -416,8 +431,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/17/Jmeter接口之存储Token参数/" rel="prev" title="Jmeter接口之存储Token参数">
-                Jmeter接口之存储Token参数 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/17/Jmeter接口之代理服务器录制脚本/" rel="prev" title="Jmeter接口之代理服务器录制脚本">
+                Jmeter接口之代理服务器录制脚本 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -552,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter接口之代理服务器录制脚本"><span class="nav-number">1.</span> <span class="nav-text">Jmeter接口之代理服务器录制脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Jmeter设置："><span class="nav-number">1.1.</span> <span class="nav-text">Jmeter设置：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器设置"><span class="nav-number">1.2.</span> <span class="nav-text">浏览器设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Jmeter进行录制"><span class="nav-number">1.3.</span> <span class="nav-text">启动Jmeter进行录制</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter接口之JSON"><span class="nav-number">1.</span> <span class="nav-text">Jmeter接口之JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取API接口及Json数据"><span class="nav-number">1.1.</span> <span class="nav-text">获取API接口及Json数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jmeter接口测试流程"><span class="nav-number">1.2.</span> <span class="nav-text">Jmeter接口测试流程</span></a></li></ol></li></ol></div>
             
 
           </div>
