@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
 <meta property="og:description" content="TPS和QPS的区别和理解TPS：是Transactions Per Second的缩写，也就是事务数/秒。它是软件测试结果的测量单位。一个事务是指一个客户机向服务器发送请求然后服务器做出反应的过程。客户机在发送请求时开始计时，收到服务器响应后结束计时，以此来计算使用的时间和完成的事务个数。 QPS：是Queries Per Second的缩写，意思是每秒查询率，是一台服务器每秒能够相应的查询次数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-04T03:33:46.300Z">
+<meta property="og:updated_time" content="2019-04-04T03:41:53.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TPS和QPS的区别和理解">
 <meta name="twitter:description" content="TPS和QPS的区别和理解TPS：是Transactions Per Second的缩写，也就是事务数/秒。它是软件测试结果的测量单位。一个事务是指一个客户机向服务器发送请求然后服务器做出反应的过程。客户机在发送请求时开始计时，收到服务器响应后结束计时，以此来计算使用的时间和完成的事务个数。 QPS：是Queries Per Second的缩写，意思是每秒查询率，是一台服务器每秒能够相应的查询次数">
@@ -355,10 +355,10 @@
         <h1 id="TPS和QPS的区别和理解"><a href="#TPS和QPS的区别和理解" class="headerlink" title="TPS和QPS的区别和理解"></a>TPS和QPS的区别和理解</h1><p>TPS：是Transactions Per Second的缩写，也就是事务数/秒。它是软件测试结果的测量单位。一个事务是指一个客户机向服务器发送请求然后服务器做出反应的过程。客户机在发送请求时开始计时，收到服务器响应后结束计时，以此来计算使用的时间和完成的事务个数。</p>
 <p>QPS：是Queries Per Second的缩写，意思是每秒查询率，是一台服务器每秒能够相应的查询次数，是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准。</p>
 <h2 id="区别及理解："><a href="#区别及理解：" class="headerlink" title="区别及理解："></a>区别及理解：</h2><p>1、TPS即每秒处理事务数，包括：”用户请求服务器”、”服务器自己的内部处理”、”服务器返回给用户”，这三个过程，每秒能够完成N个这三个过程，TPS也就是N；</p>
-<p>2、QPS基本类似于TPS，但是不同的是，对于一个页面的一次访问，形成一个TPS；但一次页面请求，可能产生多次对服务器的请求，服务器对这些请求，就可计入QPS之中。</p>
+<p>2、QPS基本类似于TPS，但是不同的是，对于一个页面的一次访问，形成一个TPS；但一次页面请求，可能产生多次对服务器的请求，服务器对这些请求，就可计入QPS之中。例如访问百度首页<a href="http://www.baidu.com，一次页面请求，可能需要加载很多其他请求数，QPS就是统计每秒能够承受多少次百度首页访问" target="_blank" rel="noopener">www.baidu.com，一次页面请求，可能需要加载很多其他请求数，QPS就是统计每秒能够承受多少次百度首页访问</a></p>
 <p>3、一般的，评价系统性能均以每秒钟完成的技术交易的数量来衡量。系统整体处理能力取决于处理能力最低模块的TPS值。</p>
 <p>4、QPS对应fetches/sec，即每秒的响应请求数，也即是最大吞吐能力。</p>
-<h2 id="简单理解："><a href="#简单理解：" class="headerlink" title="简单理解："></a>简单理解：</h2><p>tps：Transactions Per Second，一般在事务系统之中，在mysql可以用tps</p>
+<h2 id="简单理解："><a href="#简单理解：" class="headerlink" title="简单理解："></a>简单理解：</h2><p>tps：Transactions Per Second，一般在事务系统之中，即每秒处理事务数</p>
 <p>qps：Queries Per Second，一般就是访问次数</p>
 <p>ops：Operates Per Second，一般是操作次数，与qps区别不大。</p>
 
@@ -391,8 +391,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/18/Session-Cookie-Token区别/" rel="next" title="Session/Cookie/Token区别">
-                <i class="fa fa-chevron-left"></i> Session/Cookie/Token区别
+              <a href="/2019/03/18/Google开发者工具中Network页面加载时间/" rel="next" title="Google开发者工具中Network页面加载时间">
+                <i class="fa fa-chevron-left"></i> Google开发者工具中Network页面加载时间
               </a>
             
           </div>
