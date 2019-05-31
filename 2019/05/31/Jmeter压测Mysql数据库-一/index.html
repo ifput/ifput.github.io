@@ -79,18 +79,24 @@
 
 
 
-<meta name="description" content="TPS和QPS的区别和理解TPS：是Transactions Per Second的缩写，也就是事务数/秒。它是软件测试结果的测量单位。一个事务是指一个客户机向服务器发送请求然后服务器做出反应的过程。客户机在发送请求时开始计时，收到服务器响应后结束计时，以此来计算使用的时间和完成的事务个数。 QPS：是Queries Per Second的缩写，意思是每秒查询率，是一台服务器每秒能够相应的查询次数">
+<meta name="description" content="Jmeter压测MySQL数据库(一)下载Mysql驱动（JDBC）JDBC（Java DataBase Connectivity,java数据库连接）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。JDBC提供了一种基准，据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序  进入MySQL官网，直达连接M">
 <meta name="keywords" content="Jmeter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TPS和QPS的区别和理解">
-<meta property="og:url" content="http://yoursite.com/2019/04/04/TPS和QPS的区别和理解/index.html">
+<meta property="og:title" content="Jmeter压测Mysql数据库(一)">
+<meta property="og:url" content="http://yoursite.com/2019/05/31/Jmeter压测Mysql数据库-一/index.html">
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
-<meta property="og:description" content="TPS和QPS的区别和理解TPS：是Transactions Per Second的缩写，也就是事务数/秒。它是软件测试结果的测量单位。一个事务是指一个客户机向服务器发送请求然后服务器做出反应的过程。客户机在发送请求时开始计时，收到服务器响应后结束计时，以此来计算使用的时间和完成的事务个数。 QPS：是Queries Per Second的缩写，意思是每秒查询率，是一台服务器每秒能够相应的查询次数">
+<meta property="og:description" content="Jmeter压测MySQL数据库(一)下载Mysql驱动（JDBC）JDBC（Java DataBase Connectivity,java数据库连接）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。JDBC提供了一种基准，据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序  进入MySQL官网，直达连接M">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-04T03:41:53.948Z">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/Zip%E5%8C%85%E4%B8%8B%E8%BD%BD.png">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%B7%BB%E5%8A%A0jar%E5%8C%85.png">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E8%AE%BE%E7%BD%AE%E7%BA%BF%E7%A8%8B%E7%BB%84.png">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E8%AE%BE%E7%BD%AE%E8%BF%9E%E6%8E%A5%E6%B1%A0.png">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E9%85%8D%E7%BD%AE%E9%A1%B9.png">
+<meta property="og:updated_time" content="2019-05-31T10:12:31.196Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TPS和QPS的区别和理解">
-<meta name="twitter:description" content="TPS和QPS的区别和理解TPS：是Transactions Per Second的缩写，也就是事务数/秒。它是软件测试结果的测量单位。一个事务是指一个客户机向服务器发送请求然后服务器做出反应的过程。客户机在发送请求时开始计时，收到服务器响应后结束计时，以此来计算使用的时间和完成的事务个数。 QPS：是Queries Per Second的缩写，意思是每秒查询率，是一台服务器每秒能够相应的查询次数">
+<meta name="twitter:title" content="Jmeter压测Mysql数据库(一)">
+<meta name="twitter:description" content="Jmeter压测MySQL数据库(一)下载Mysql驱动（JDBC）JDBC（Java DataBase Connectivity,java数据库连接）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。JDBC提供了一种基准，据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序  进入MySQL官网，直达连接M">
+<meta name="twitter:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/Zip%E5%8C%85%E4%B8%8B%E8%BD%BD.png">
 
 
 
@@ -120,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/04/TPS和QPS的区别和理解/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/31/Jmeter压测Mysql数据库-一/">
 
 
 
 
 
-  <title>TPS和QPS的区别和理解 | 陈宏杰's 私人小巢</title>
+  <title>Jmeter压测Mysql数据库(一) | 陈宏杰's 私人小巢</title>
   
 
 
@@ -263,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/TPS和QPS的区别和理解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/Jmeter压测Mysql数据库-一/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ChenHJ">
@@ -280,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">TPS和QPS的区别和理解</h1>
+          <h1 class="post-title" itemprop="name headline">Jmeter压测Mysql数据库(一)</h1>
         
 
         <div class="post-meta">
@@ -292,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T10:15:32+08:00">
-                2019-04-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-31T15:11:32+08:00">
+                2019-05-31
               </time>
             
 
@@ -352,15 +358,61 @@
       
 
       
-        <h1 id="TPS和QPS的区别和理解"><a href="#TPS和QPS的区别和理解" class="headerlink" title="TPS和QPS的区别和理解"></a>TPS和QPS的区别和理解</h1><p>TPS：是Transactions Per Second的缩写，也就是事务数/秒。它是软件测试结果的测量单位。一个事务是指一个客户机向服务器发送请求然后服务器做出反应的过程。客户机在发送请求时开始计时，收到服务器响应后结束计时，以此来计算使用的时间和完成的事务个数。</p>
-<p>QPS：是Queries Per Second的缩写，意思是每秒查询率，是一台服务器每秒能够相应的查询次数，是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准。</p>
-<h2 id="区别及理解："><a href="#区别及理解：" class="headerlink" title="区别及理解："></a>区别及理解：</h2><p>1、TPS即每秒处理事务数，包括：”用户请求服务器”、”服务器自己的内部处理”、”服务器返回给用户”，这三个过程，每秒能够完成N个这三个过程，TPS也就是N；</p>
-<p>2、QPS基本类似于TPS，但是不同的是，对于一个页面的一次访问，形成一个TPS；但一次页面请求，可能产生多次对服务器的请求，服务器对这些请求，就可计入QPS之中。例如访问百度首页<a href="http://www.baidu.com，一次页面请求，可能需要加载很多其他请求数，QPS就是统计每秒能够承受多少次百度首页访问" target="_blank" rel="noopener">www.baidu.com，一次页面请求，可能需要加载很多其他请求数，QPS就是统计每秒能够承受多少次百度首页访问</a></p>
-<p>3、一般的，评价系统性能均以每秒钟完成的技术交易的数量来衡量。系统整体处理能力取决于处理能力最低模块的TPS值。</p>
-<p>4、QPS对应fetches/sec，即每秒的响应请求数，也即是最大吞吐能力。</p>
-<h2 id="简单理解："><a href="#简单理解：" class="headerlink" title="简单理解："></a>简单理解：</h2><p>tps：Transactions Per Second，一般在事务系统之中，即每秒处理事务数</p>
-<p>qps：Queries Per Second，一般就是访问次数</p>
-<p>ops：Operates Per Second，一般是操作次数，与qps区别不大。</p>
+        <h1 id="Jmeter压测MySQL数据库-一"><a href="#Jmeter压测MySQL数据库-一" class="headerlink" title="Jmeter压测MySQL数据库(一)"></a>Jmeter压测MySQL数据库(一)</h1><h2 id="下载Mysql驱动（JDBC）"><a href="#下载Mysql驱动（JDBC）" class="headerlink" title="下载Mysql驱动（JDBC）"></a>下载Mysql驱动（JDBC）</h2><p>JDBC（Java DataBase Connectivity,java数据库连接）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。JDBC提供了一种基准，据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序</p>
+<ol>
+<li><p>进入MySQL官网，直达连接<a href="https://dev.mysql.com/downloads/connector/j/" target="_blank" rel="noopener">Mysql_JDBC</a></p>
+</li>
+<li><p>点击“Looking for the latest GA version?”,选择ZIP的格式下载，如：<br><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/Zip%E5%8C%85%E4%B8%8B%E8%BD%BD.png" alt="ZIP包下载"></p>
+</li>
+<li><p>下载完解压后，把里面的.Jar包拷贝至Jmeter的bin文件夹中</p>
+</li>
+</ol>
+<h2 id="Jmeter-配置压测MySQL环境"><a href="#Jmeter-配置压测MySQL环境" class="headerlink" title="Jmeter 配置压测MySQL环境"></a>Jmeter 配置压测MySQL环境</h2><h3 id="Jmeter配置Jar包"><a href="#Jmeter配置Jar包" class="headerlink" title="Jmeter配置Jar包"></a>Jmeter配置Jar包</h3><ol>
+<li>测试计划–添加目录或jar包到ClassPath–浏览，选择刚刚下载JDBC的jar包 </li>
+</ol>
+<p><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%B7%BB%E5%8A%A0jar%E5%8C%85.png" alt></p>
+<h3 id="Jmeter配置JDBC-Connection-Configuration"><a href="#Jmeter配置JDBC-Connection-Configuration" class="headerlink" title="Jmeter配置JDBC Connection Configuration"></a>Jmeter配置JDBC Connection Configuration</h3><ol>
+<li>设置线程组，配置JDBC连接池</li>
+</ol>
+<p><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E8%AE%BE%E7%BD%AE%E7%BA%BF%E7%A8%8B%E7%BB%84.png" alt></p>
+<p><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E8%AE%BE%E7%BD%AE%E8%BF%9E%E6%8E%A5%E6%B1%A0.png" alt></p>
+<ol start="2">
+<li>JDBC Connection Configuration 配置项讲解<h6 id="核心配置"><a href="#核心配置" class="headerlink" title="核心配置"></a>核心配置</h6></li>
+</ol>
+<blockquote>
+<p>Variable Name for created pool：JDBC连接池变量名，后续JDBC Request需要配置</p>
+</blockquote>
+<blockquote>
+<p>Max Number of connections : 最大连接数</p>
+</blockquote>
+<blockquote>
+<p>MAX wait :最大等待时间</p>
+</blockquote>
+<blockquote>
+<p>Auto Commit: 是否自动提交事务</p>
+</blockquote>
+<h6 id="Database-Connection-Configuration"><a href="#Database-Connection-Configuration" class="headerlink" title="Database Connection Configuration"></a>Database Connection Configuration</h6><blockquote>
+<p>DataBase URL : 数据库连接地址</p>
+</blockquote>
+<blockquote>
+<p>jdbc:mysql://localhost:3306/studysql?serverTimezone=UTC&amp;characterEncoding=utf-8</p>
+</blockquote>
+<blockquote>
+<p>注：studysql为库名</p>
+</blockquote>
+<blockquote>
+<p>JDBC Driver Class : 数据库驱动，选择对应的mysql</p>
+</blockquote>
+<blockquote>
+<p>一般MySQL选择为：com.mysql.jdbc.Driver</p>
+</blockquote>
+<blockquote>
+<p>username:数据库用户名</p>
+</blockquote>
+<blockquote>
+<p>password:数据库密码</p>
+</blockquote>
+<p><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E9%85%8D%E7%BD%AE%E9%A1%B9.png" alt="JDBC Connection Configuration配置项"></p>
 
       
     </div>
@@ -391,8 +443,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/18/Session-Cookie-Token区别/" rel="next" title="Session/Cookie/Token区别">
-                <i class="fa fa-chevron-left"></i> Session/Cookie/Token区别
+              <a href="/2019/05/31/Jmeter安装方法/" rel="next" title="Jmeter安装方法">
+                <i class="fa fa-chevron-left"></i> Jmeter安装方法
               </a>
             
           </div>
@@ -400,10 +452,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/15/什么是dubbo-zookeeper/" rel="prev" title="什么是dubbo-zookeeper">
-                什么是dubbo-zookeeper <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -537,7 +585,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TPS和QPS的区别和理解"><span class="nav-number">1.</span> <span class="nav-text">TPS和QPS的区别和理解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#区别及理解："><span class="nav-number">1.1.</span> <span class="nav-text">区别及理解：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单理解："><span class="nav-number">1.2.</span> <span class="nav-text">简单理解：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter压测MySQL数据库-一"><span class="nav-number">1.</span> <span class="nav-text">Jmeter压测MySQL数据库(一)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载Mysql驱动（JDBC）"><span class="nav-number">1.1.</span> <span class="nav-text">下载Mysql驱动（JDBC）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jmeter-配置压测MySQL环境"><span class="nav-number">1.2.</span> <span class="nav-text">Jmeter 配置压测MySQL环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Jmeter配置Jar包"><span class="nav-number">1.2.1.</span> <span class="nav-text">Jmeter配置Jar包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jmeter配置JDBC-Connection-Configuration"><span class="nav-number">1.2.2.</span> <span class="nav-text">Jmeter配置JDBC Connection Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#核心配置"><span class="nav-number">1.2.2.0.0.1.</span> <span class="nav-text">核心配置</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Database-Connection-Configuration"><span class="nav-number">1.2.2.0.0.2.</span> <span class="nav-text">Database Connection Configuration</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
