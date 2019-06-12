@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="Jmeter接口之存储Token参数1.利用Fiddler获取登录界面JSON的结构  2.Jmeter在登录请求中添加JSON提取器  3.Jmeter设置Token的获取路径及引用名称  4.在其他连接中引用该Token">
+<meta name="description" content="Jmeter接口之存储Token参数(原创)1.利用Fiddler获取登录界面JSON的结构  2.Jmeter在登录请求中添加JSON提取器  3.Jmeter设置Token的获取路径及引用名称  4.在其他连接中引用该Token">
 <meta name="keywords" content="Jmeter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jmeter接口之存储Token参数">
+<meta property="og:title" content="Jmeter接口之存储Token参数(原创)">
 <meta property="og:url" content="http://yoursite.com/2019/03/17/Jmeter接口之存储Token参数/index.html">
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
-<meta property="og:description" content="Jmeter接口之存储Token参数1.利用Fiddler获取登录界面JSON的结构  2.Jmeter在登录请求中添加JSON提取器  3.Jmeter设置Token的获取路径及引用名称  4.在其他连接中引用该Token">
+<meta property="og:description" content="Jmeter接口之存储Token参数(原创)1.利用Fiddler获取登录界面JSON的结构  2.Jmeter在登录请求中添加JSON提取器  3.Jmeter设置Token的获取路径及引用名称  4.在其他连接中引用该Token">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E8%8E%B7%E5%8F%96token/1_fiddler%E8%8E%B7%E5%8F%96%E7%99%BB%E5%85%A5%E5%90%8E%E7%9A%84token.png">
 <meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E8%8E%B7%E5%8F%96token/2_%E5%9C%A8%E7%99%BB%E5%BD%95%E8%AF%B7%E6%B1%82%E4%B8%AD%E6%B7%BB%E5%8A%A0JSON%E6%8F%90%E5%8F%96%E5%99%A8.png">
 <meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E8%8E%B7%E5%8F%96token/3_%E8%AE%BE%E7%BD%AEToken%E6%B9%96%E5%8C%BA%E8%B7%AF%E5%BE%84%E5%8F%8A%E5%90%8D%E7%A7%B0.png">
 <meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E8%8E%B7%E5%8F%96token/4_%E5%9C%A8%E5%85%B6%E4%BB%96%E8%BF%9E%E6%8E%A5%E4%B8%AD%E5%BC%95%E7%94%A8%E8%AF%A5Token%E5%80%BC.png">
-<meta property="og:updated_time" content="2019-03-17T08:40:33.733Z">
+<meta property="og:updated_time" content="2019-06-12T06:12:11.627Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jmeter接口之存储Token参数">
-<meta name="twitter:description" content="Jmeter接口之存储Token参数1.利用Fiddler获取登录界面JSON的结构  2.Jmeter在登录请求中添加JSON提取器  3.Jmeter设置Token的获取路径及引用名称  4.在其他连接中引用该Token">
+<meta name="twitter:title" content="Jmeter接口之存储Token参数(原创)">
+<meta name="twitter:description" content="Jmeter接口之存储Token参数(原创)1.利用Fiddler获取登录界面JSON的结构  2.Jmeter在登录请求中添加JSON提取器  3.Jmeter设置Token的获取路径及引用名称  4.在其他连接中引用该Token">
 <meta name="twitter:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E8%8E%B7%E5%8F%96token/1_fiddler%E8%8E%B7%E5%8F%96%E7%99%BB%E5%85%A5%E5%90%8E%E7%9A%84token.png">
 
 
@@ -131,7 +131,7 @@
 
 
 
-  <title>Jmeter接口之存储Token参数 | 陈宏杰's 私人小巢</title>
+  <title>Jmeter接口之存储Token参数(原创) | 陈宏杰's 私人小巢</title>
   
 
 
@@ -285,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Jmeter接口之存储Token参数</h1>
+          <h1 class="post-title" itemprop="name headline">Jmeter接口之存储Token参数(原创)</h1>
         
 
         <div class="post-meta">
@@ -357,7 +357,7 @@
       
 
       
-        <h1 id="Jmeter接口之存储Token参数"><a href="#Jmeter接口之存储Token参数" class="headerlink" title="Jmeter接口之存储Token参数"></a>Jmeter接口之存储Token参数</h1><p>1.利用Fiddler获取登录界面JSON的结构</p>
+        <h1 id="Jmeter接口之存储Token参数-原创"><a href="#Jmeter接口之存储Token参数-原创" class="headerlink" title="Jmeter接口之存储Token参数(原创)"></a>Jmeter接口之存储Token参数(原创)</h1><p>1.利用Fiddler获取登录界面JSON的结构</p>
 <p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E8%8E%B7%E5%8F%96token/1_fiddler%E8%8E%B7%E5%8F%96%E7%99%BB%E5%85%A5%E5%90%8E%E7%9A%84token.png" alt></p>
 <p>2.Jmeter在登录请求中添加JSON提取器</p>
 <p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/jmeter%E8%8E%B7%E5%8F%96token/2_%E5%9C%A8%E7%99%BB%E5%BD%95%E8%AF%B7%E6%B1%82%E4%B8%AD%E6%B7%BB%E5%8A%A0JSON%E6%8F%90%E5%8F%96%E5%99%A8.png" alt></p>
@@ -395,8 +395,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/17/Jmeter接口之代理服务器录制脚本/" rel="next" title="Jmeter接口之代理服务器录制脚本">
-                <i class="fa fa-chevron-left"></i> Jmeter接口之代理服务器录制脚本
+              <a href="/2019/03/17/Jmeter接口之代理服务器录制脚本/" rel="next" title="Jmeter接口之代理服务器录制脚本(原创)">
+                <i class="fa fa-chevron-left"></i> Jmeter接口之代理服务器录制脚本(原创)
               </a>
             
           </div>
@@ -405,8 +405,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/18/Session-Cookie-Token区别/" rel="prev" title="Session/Cookie/Token区别">
-                Session/Cookie/Token区别 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/18/Google开发者工具中Network页面加载时间/" rel="prev" title="Google开发者工具中Network页面加载时间">
+                Google开发者工具中Network页面加载时间 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -541,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter接口之存储Token参数"><span class="nav-number">1.</span> <span class="nav-text">Jmeter接口之存储Token参数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter接口之存储Token参数-原创"><span class="nav-number">1.</span> <span class="nav-text">Jmeter接口之存储Token参数(原创)</span></a></li></ol></div>
             
 
           </div>
