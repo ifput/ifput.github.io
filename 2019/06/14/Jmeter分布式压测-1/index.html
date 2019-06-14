@@ -79,33 +79,21 @@
 
 
 
-<meta name="description" content="Jmeter接口测试之HTTP链接带Json参数(原创)获取API接口及Json数据打开Fiddler 抓取post请求及Json数据，如图：从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据 Jmeter接口测试流程1.打开Jmeter新建线程组 2.添加Http请求： 注意HTTP信息头管理器需要添加支持JSON传递  添加Ht">
+<meta name="description" content="Jmeter分布式压测(一) 由于单台机器向服务器发起压测时，受限于单台机器的内存，CPU等硬件信息，在压测线程较多时，压测机器会成为压测的瓶颈，所以我们希望能有多台机器向服务器同时发起压测，并收集压测信息。Jmeter为我们提供了良好的分布式压测支持。 原理下图为官网提供的压测示意图： Target：目标机器，即我们想要压测的服务器 Slaves：压测机或奴隶机，是直接向服务器发起压测的机器 M">
 <meta name="keywords" content="Jmeter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jmeter接口之JSON(原创)">
-<meta property="og:url" content="http://yoursite.com/2019/03/17/Jmeter接口测试之HTTP链接带Json参数/index.html">
+<meta property="og:title" content="Jmeter分布式压测(一)">
+<meta property="og:url" content="http://yoursite.com/2019/06/14/Jmeter分布式压测-1/index.html">
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
-<meta property="og:description" content="Jmeter接口测试之HTTP链接带Json参数(原创)获取API接口及Json数据打开Fiddler 抓取post请求及Json数据，如图：从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据 Jmeter接口测试流程1.打开Jmeter新建线程组 2.添加Http请求： 注意HTTP信息头管理器需要添加支持JSON传递  添加Ht">
+<meta property="og:description" content="Jmeter分布式压测(一) 由于单台机器向服务器发起压测时，受限于单台机器的内存，CPU等硬件信息，在压测线程较多时，压测机器会成为压测的瓶颈，所以我们希望能有多台机器向服务器同时发起压测，并收集压测信息。Jmeter为我们提供了良好的分布式压测支持。 原理下图为官网提供的压测示意图： Target：目标机器，即我们想要压测的服务器 Slaves：压测机或奴隶机，是直接向服务器发起压测的机器 M">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/0_fiddler%E6%8A%93%E5%8F%96%E4%B8%8B%E5%8D%95%E6%8E%A5%E5%8F%A3.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/1_%E6%B7%BB%E5%8A%A0%E7%BA%BF%E7%A8%8B%E7%BB%84.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/2_%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%82.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/http%E8%AF%B7%E6%B1%82.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0http%E6%B6%88%E6%81%AF%E5%A4%B4.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0%E6%B6%88%E6%81%AF%E5%A4%B4%E4%B8%BB%E8%A6%81%E6%95%B0%E6%8D%AE.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%B7%BB%E5%8A%A0%E7%9B%B8%E5%BA%94%E6%96%AD%E8%A8%80.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%96%AD%E8%A8%80%E8%BF%94%E5%9B%9E%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8C%85%E5%90%AB%E6%88%90%E5%8A%9F.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E5%90%84%E7%B1%BB%E7%9B%91%E5%90%AC%E5%99%A8.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E7%9B%91%E5%90%AC%E5%99%A8.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E8%AF%B7%E6%B1%82.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E5%93%8D%E5%BA%94.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/7_%E6%96%AD%E8%A8%80%E7%BB%93%E6%9E%9C.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/8_%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A.jpg">
-<meta property="og:updated_time" content="2019-06-12T06:11:41.523Z">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B%E5%8E%9F%E7%90%86.png">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%BE%E7%A4%BA.png">
+<meta property="og:updated_time" content="2019-06-14T03:49:19.926Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jmeter接口之JSON(原创)">
-<meta name="twitter:description" content="Jmeter接口测试之HTTP链接带Json参数(原创)获取API接口及Json数据打开Fiddler 抓取post请求及Json数据，如图：从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据 Jmeter接口测试流程1.打开Jmeter新建线程组 2.添加Http请求： 注意HTTP信息头管理器需要添加支持JSON传递  添加Ht">
-<meta name="twitter:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/0_fiddler%E6%8A%93%E5%8F%96%E4%B8%8B%E5%8D%95%E6%8E%A5%E5%8F%A3.jpg">
+<meta name="twitter:title" content="Jmeter分布式压测(一)">
+<meta name="twitter:description" content="Jmeter分布式压测(一) 由于单台机器向服务器发起压测时，受限于单台机器的内存，CPU等硬件信息，在压测线程较多时，压测机器会成为压测的瓶颈，所以我们希望能有多台机器向服务器同时发起压测，并收集压测信息。Jmeter为我们提供了良好的分布式压测支持。 原理下图为官网提供的压测示意图： Target：目标机器，即我们想要压测的服务器 Slaves：压测机或奴隶机，是直接向服务器发起压测的机器 M">
+<meta name="twitter:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B%E5%8E%9F%E7%90%86.png">
 
 
 
@@ -135,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/17/Jmeter接口测试之HTTP链接带Json参数/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/14/Jmeter分布式压测-1/">
 
 
 
 
 
-  <title>Jmeter接口之JSON(原创) | 陈宏杰's 私人小巢</title>
+  <title>Jmeter分布式压测(一) | 陈宏杰's 私人小巢</title>
   
 
 
@@ -278,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/Jmeter接口测试之HTTP链接带Json参数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/14/Jmeter分布式压测-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ChenHJ">
@@ -295,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Jmeter接口之JSON(原创)</h1>
+          <h1 class="post-title" itemprop="name headline">Jmeter分布式压测(一)</h1>
         
 
         <div class="post-meta">
@@ -307,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T12:37:34+08:00">
-                2019-03-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-14T10:33:15+08:00">
+                2019-06-14
               </time>
             
 
@@ -367,32 +355,54 @@
       
 
       
-        <h1 id="Jmeter接口测试之HTTP链接带Json参数-原创"><a href="#Jmeter接口测试之HTTP链接带Json参数-原创" class="headerlink" title="Jmeter接口测试之HTTP链接带Json参数(原创)"></a>Jmeter接口测试之HTTP链接带Json参数(原创)</h1><h2 id="获取API接口及Json数据"><a href="#获取API接口及Json数据" class="headerlink" title="获取API接口及Json数据"></a>获取API接口及Json数据</h2><p>打开Fiddler 抓取post请求及Json数据，如图：<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/0_fiddler%E6%8A%93%E5%8F%96%E4%B8%8B%E5%8D%95%E6%8E%A5%E5%8F%A3.jpg" alt><br>从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据</p>
-<h2 id="Jmeter接口测试流程"><a href="#Jmeter接口测试流程" class="headerlink" title="Jmeter接口测试流程"></a>Jmeter接口测试流程</h2><p>1.打开Jmeter新建线程组<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/1_%E6%B7%BB%E5%8A%A0%E7%BA%BF%E7%A8%8B%E7%BB%84.jpg" alt></p>
-<p>2.添加Http请求：</p>
-<p>注意HTTP信息头管理器需要添加支持JSON传递</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/2_%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%82.jpg" alt></p>
-<p>添加Http请求中，参数如下，这些数据都是可以种Fiddler种抓到的数据进行填写</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/http%E8%AF%B7%E6%B1%82.jpg" alt></p>
-<p>3.添加Http消息头管理器，存储mToken参数</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0http%E6%B6%88%E6%81%AF%E5%A4%B4.jpg" alt></p>
-<p>4.添加消息头信息</p>
-<p>从Fiddler总复制请求头信息，粘贴至消息头管理器中</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0%E6%B6%88%E6%81%AF%E5%A4%B4%E4%B8%BB%E8%A6%81%E6%95%B0%E6%8D%AE.jpg" alt></p>
-<p>5.添加响应断言</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%B7%BB%E5%8A%A0%E7%9B%B8%E5%BA%94%E6%96%AD%E8%A8%80.jpg" alt></p>
-<p>填写断言信息：<br>可以看到响应数据中包含“成功”，可以从通过包含成功进行断言</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%96%AD%E8%A8%80%E8%BF%94%E5%9B%9E%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8C%85%E5%90%AB%E6%88%90%E5%8A%9F.jpg" alt></p>
-<p>6.添加监听器</p>
-<p>主要有查看结果树、断言结果、聚合报告</p>
-<p>添加结果树：<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E5%90%84%E7%B1%BB%E7%9B%91%E5%90%AC%E5%99%A8.jpg" alt></p>
-<p>添加断言结果：</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E7%9B%91%E5%90%AC%E5%99%A8.jpg" alt></p>
-<p>7.查看测试结果：<br>查看结果树请求及响应数据<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E8%AF%B7%E6%B1%82.jpg" alt></p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E5%93%8D%E5%BA%94.jpg" alt><br>查看断言结果：</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/7_%E6%96%AD%E8%A8%80%E7%BB%93%E6%9E%9C.jpg" alt></p>
-<p>8.查看聚合报告：</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/8_%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A.jpg" alt></p>
+        <h1 id="Jmeter分布式压测-一"><a href="#Jmeter分布式压测-一" class="headerlink" title="Jmeter分布式压测(一)"></a>Jmeter分布式压测(一)</h1><p> 由于单台机器向服务器发起压测时，受限于单台机器的内存，CPU等硬件信息，在压测线程较多时，压测机器会成为压测的瓶颈，所以我们希望能有多台机器向服务器同时发起压测，并收集压测信息。Jmeter为我们提供了良好的分布式压测支持。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>下图为官网提供的压测示意图：<br><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B%E5%8E%9F%E7%90%86.png" alt></p>
+<p>Target：目标机器，即我们想要压测的服务器</p>
+<p>Slaves：压测机或奴隶机，是直接向服务器发起压测的机器</p>
+<p>Master：司令机，控制Slave并收集反馈信息的机器</p>
+<p>Master通过发起命令，上传压测脚本至Slaves机器，由Slaves启动脚本，并向Target机器发起压测。当压测的结束后，Salves机器会把收集到的结果信息传给Master，由Master统一收集信息，进行信息结果整合</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>注意： 请注意所有Master或Salves机器的JDK版本需一致</p>
+<h3 id="Linux安装JDK"><a href="#Linux安装JDK" class="headerlink" title="Linux安装JDK"></a>Linux安装JDK</h3><ol>
+<li><p>进入官网下载JDK，下载地址：<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
+</li>
+<li><p>下载相应的包，如<code>jdk1.8.0_171.tar.gz</code>拷贝至Linux系统中</p>
+<ul>
+<li><p>在根目录上新建一个文件夹</p>
+<p>  <code>mkdir soft</code></p>
+</li>
+<li><p>拷贝包至 /soft文件后解压</p>
+<p>  <code>tar zvxf . jdk1.8.0_171.tar.gz</code></p>
+</li>
+<li><p>修改/etc/profile文件，配置系统环境</p>
+<p>  <code>vi /etc/profile</code></p>
+</li>
+<li><p>把以下代码加进文件末尾</p>
+<pre><code>export JAVA_HOME=/soft/jdk1.8.0_171/
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export JRE_HOME=$JAVA_HOME/jre
+</code></pre></li>
+<li><p>保存完成后，在窗口输入：<code>java -version</code>检测是否安装成功</p>
+</li>
+<li><p>显示以下信息则正确</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Linux安装Jmeter"><a href="#Linux安装Jmeter" class="headerlink" title="Linux安装Jmeter"></a>Linux安装Jmeter</h3><ol>
+<li><p>进入官网下载Jmeter，下载地址：<a href="https://jmeter.apache.org/download_jmeter.cgi" target="_blank" rel="noopener">https://jmeter.apache.org/download_jmeter.cgi</a></p>
+</li>
+<li><p>下载相应的包，如<code>jmeter-5.1.1.zip</code>拷贝至Linux系统中<code>soft</code>文件夹中</p>
+<ul>
+<li><p>对Jmeter包进行解压</p>
+<p>  <code>unzip -d . jmeter-5.1.1.zip</code></p>
+</li>
+</ul>
+</li>
+<li><p>安装完JDK与Jmeter时，Salve机应该有如下文件</p>
+<p> <img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%BE%E7%A4%BA.png" alt></p>
+</li>
+</ol>
 
       
     </div>
@@ -423,8 +433,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/09/优秀资源链接/" rel="next" title="优秀资源链接">
-                <i class="fa fa-chevron-left"></i> 优秀资源链接
+              <a href="/2019/06/10/Jmeter接口之安装插件及服务器端监控/" rel="next" title="Jmeter之安装插件及服务器端监控(原创)">
+                <i class="fa fa-chevron-left"></i> Jmeter之安装插件及服务器端监控(原创)
               </a>
             
           </div>
@@ -432,10 +442,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/17/Jmeter接口之代理服务器录制脚本/" rel="prev" title="Jmeter接口之代理服务器录制脚本(原创)">
-                Jmeter接口之代理服务器录制脚本(原创) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -569,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter接口测试之HTTP链接带Json参数-原创"><span class="nav-number">1.</span> <span class="nav-text">Jmeter接口测试之HTTP链接带Json参数(原创)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取API接口及Json数据"><span class="nav-number">1.1.</span> <span class="nav-text">获取API接口及Json数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jmeter接口测试流程"><span class="nav-number">1.2.</span> <span class="nav-text">Jmeter接口测试流程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter分布式压测-一"><span class="nav-number">1.</span> <span class="nav-text">Jmeter分布式压测(一)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.2.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux安装JDK"><span class="nav-number">1.2.1.</span> <span class="nav-text">Linux安装JDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux安装Jmeter"><span class="nav-number">1.2.2.</span> <span class="nav-text">Linux安装Jmeter</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

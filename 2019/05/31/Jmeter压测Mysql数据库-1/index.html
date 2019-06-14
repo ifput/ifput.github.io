@@ -79,33 +79,24 @@
 
 
 
-<meta name="description" content="Jmeter接口测试之HTTP链接带Json参数(原创)获取API接口及Json数据打开Fiddler 抓取post请求及Json数据，如图：从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据 Jmeter接口测试流程1.打开Jmeter新建线程组 2.添加Http请求： 注意HTTP信息头管理器需要添加支持JSON传递  添加Ht">
+<meta name="description" content="Jmeter压测MySQL数据库(一)(原创)下载Mysql驱动（JDBC）JDBC（Java DataBase Connectivity,java数据库连接）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。JDBC提供了一种基准，据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序  进入MySQL官网，直">
 <meta name="keywords" content="Jmeter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jmeter接口之JSON(原创)">
-<meta property="og:url" content="http://yoursite.com/2019/03/17/Jmeter接口测试之HTTP链接带Json参数/index.html">
+<meta property="og:title" content="Jmeter压测Mysql数据库(一)(原创)">
+<meta property="og:url" content="http://yoursite.com/2019/05/31/Jmeter压测Mysql数据库-1/index.html">
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
-<meta property="og:description" content="Jmeter接口测试之HTTP链接带Json参数(原创)获取API接口及Json数据打开Fiddler 抓取post请求及Json数据，如图：从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据 Jmeter接口测试流程1.打开Jmeter新建线程组 2.添加Http请求： 注意HTTP信息头管理器需要添加支持JSON传递  添加Ht">
+<meta property="og:description" content="Jmeter压测MySQL数据库(一)(原创)下载Mysql驱动（JDBC）JDBC（Java DataBase Connectivity,java数据库连接）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。JDBC提供了一种基准，据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序  进入MySQL官网，直">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/0_fiddler%E6%8A%93%E5%8F%96%E4%B8%8B%E5%8D%95%E6%8E%A5%E5%8F%A3.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/1_%E6%B7%BB%E5%8A%A0%E7%BA%BF%E7%A8%8B%E7%BB%84.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/2_%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%82.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/http%E8%AF%B7%E6%B1%82.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0http%E6%B6%88%E6%81%AF%E5%A4%B4.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0%E6%B6%88%E6%81%AF%E5%A4%B4%E4%B8%BB%E8%A6%81%E6%95%B0%E6%8D%AE.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%B7%BB%E5%8A%A0%E7%9B%B8%E5%BA%94%E6%96%AD%E8%A8%80.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%96%AD%E8%A8%80%E8%BF%94%E5%9B%9E%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8C%85%E5%90%AB%E6%88%90%E5%8A%9F.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E5%90%84%E7%B1%BB%E7%9B%91%E5%90%AC%E5%99%A8.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E7%9B%91%E5%90%AC%E5%99%A8.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E8%AF%B7%E6%B1%82.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E5%93%8D%E5%BA%94.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/7_%E6%96%AD%E8%A8%80%E7%BB%93%E6%9E%9C.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/8_%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A.jpg">
-<meta property="og:updated_time" content="2019-06-12T06:11:41.523Z">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/Zip%E5%8C%85%E4%B8%8B%E8%BD%BD.png">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%B7%BB%E5%8A%A0jar%E5%8C%85.png">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E8%AE%BE%E7%BD%AE%E7%BA%BF%E7%A8%8B%E7%BB%84.png">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E8%AE%BE%E7%BD%AE%E8%BF%9E%E6%8E%A5%E6%B1%A0.png">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E9%85%8D%E7%BD%AE%E9%A1%B9.png">
+<meta property="og:updated_time" content="2019-06-12T06:13:10.537Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jmeter接口之JSON(原创)">
-<meta name="twitter:description" content="Jmeter接口测试之HTTP链接带Json参数(原创)获取API接口及Json数据打开Fiddler 抓取post请求及Json数据，如图：从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据 Jmeter接口测试流程1.打开Jmeter新建线程组 2.添加Http请求： 注意HTTP信息头管理器需要添加支持JSON传递  添加Ht">
-<meta name="twitter:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/0_fiddler%E6%8A%93%E5%8F%96%E4%B8%8B%E5%8D%95%E6%8E%A5%E5%8F%A3.jpg">
+<meta name="twitter:title" content="Jmeter压测Mysql数据库(一)(原创)">
+<meta name="twitter:description" content="Jmeter压测MySQL数据库(一)(原创)下载Mysql驱动（JDBC）JDBC（Java DataBase Connectivity,java数据库连接）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。JDBC提供了一种基准，据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序  进入MySQL官网，直">
+<meta name="twitter:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/Zip%E5%8C%85%E4%B8%8B%E8%BD%BD.png">
 
 
 
@@ -135,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/17/Jmeter接口测试之HTTP链接带Json参数/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/31/Jmeter压测Mysql数据库-1/">
 
 
 
 
 
-  <title>Jmeter接口之JSON(原创) | 陈宏杰's 私人小巢</title>
+  <title>Jmeter压测Mysql数据库(一)(原创) | 陈宏杰's 私人小巢</title>
   
 
 
@@ -278,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/Jmeter接口测试之HTTP链接带Json参数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/Jmeter压测Mysql数据库-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ChenHJ">
@@ -295,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Jmeter接口之JSON(原创)</h1>
+          <h1 class="post-title" itemprop="name headline">Jmeter压测Mysql数据库(一)(原创)</h1>
         
 
         <div class="post-meta">
@@ -307,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T12:37:34+08:00">
-                2019-03-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-31T15:11:32+08:00">
+                2019-05-31
               </time>
             
 
@@ -367,32 +358,61 @@
       
 
       
-        <h1 id="Jmeter接口测试之HTTP链接带Json参数-原创"><a href="#Jmeter接口测试之HTTP链接带Json参数-原创" class="headerlink" title="Jmeter接口测试之HTTP链接带Json参数(原创)"></a>Jmeter接口测试之HTTP链接带Json参数(原创)</h1><h2 id="获取API接口及Json数据"><a href="#获取API接口及Json数据" class="headerlink" title="获取API接口及Json数据"></a>获取API接口及Json数据</h2><p>打开Fiddler 抓取post请求及Json数据，如图：<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/0_fiddler%E6%8A%93%E5%8F%96%E4%B8%8B%E5%8D%95%E6%8E%A5%E5%8F%A3.jpg" alt><br>从右侧可以知道请求的类型为Post，请求的url，端口号，协议类型，请求带有mToken参数，消息体内有Json数据</p>
-<h2 id="Jmeter接口测试流程"><a href="#Jmeter接口测试流程" class="headerlink" title="Jmeter接口测试流程"></a>Jmeter接口测试流程</h2><p>1.打开Jmeter新建线程组<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/1_%E6%B7%BB%E5%8A%A0%E7%BA%BF%E7%A8%8B%E7%BB%84.jpg" alt></p>
-<p>2.添加Http请求：</p>
-<p>注意HTTP信息头管理器需要添加支持JSON传递</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/2_%E6%B7%BB%E5%8A%A0http%E8%AF%B7%E6%B1%82.jpg" alt></p>
-<p>添加Http请求中，参数如下，这些数据都是可以种Fiddler种抓到的数据进行填写</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/http%E8%AF%B7%E6%B1%82.jpg" alt></p>
-<p>3.添加Http消息头管理器，存储mToken参数</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0http%E6%B6%88%E6%81%AF%E5%A4%B4.jpg" alt></p>
-<p>4.添加消息头信息</p>
-<p>从Fiddler总复制请求头信息，粘贴至消息头管理器中</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/3_%E6%B7%BB%E5%8A%A0%E6%B6%88%E6%81%AF%E5%A4%B4%E4%B8%BB%E8%A6%81%E6%95%B0%E6%8D%AE.jpg" alt></p>
-<p>5.添加响应断言</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%B7%BB%E5%8A%A0%E7%9B%B8%E5%BA%94%E6%96%AD%E8%A8%80.jpg" alt></p>
-<p>填写断言信息：<br>可以看到响应数据中包含“成功”，可以从通过包含成功进行断言</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/4_%E6%96%AD%E8%A8%80%E8%BF%94%E5%9B%9E%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8C%85%E5%90%AB%E6%88%90%E5%8A%9F.jpg" alt></p>
-<p>6.添加监听器</p>
-<p>主要有查看结果树、断言结果、聚合报告</p>
-<p>添加结果树：<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E5%90%84%E7%B1%BB%E7%9B%91%E5%90%AC%E5%99%A8.jpg" alt></p>
-<p>添加断言结果：</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/5_%E6%B7%BB%E5%8A%A0%E7%9B%91%E5%90%AC%E5%99%A8.jpg" alt></p>
-<p>7.查看测试结果：<br>查看结果树请求及响应数据<br><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E8%AF%B7%E6%B1%82.jpg" alt></p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/6_%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C%E6%95%B0%E5%93%8D%E5%BA%94.jpg" alt><br>查看断言结果：</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/7_%E6%96%AD%E8%A8%80%E7%BB%93%E6%9E%9C.jpg" alt></p>
-<p>8.查看聚合报告：</p>
-<p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/8_%E8%81%9A%E5%90%88%E6%8A%A5%E5%91%8A.jpg" alt></p>
+        <h1 id="Jmeter压测MySQL数据库-一-原创"><a href="#Jmeter压测MySQL数据库-一-原创" class="headerlink" title="Jmeter压测MySQL数据库(一)(原创)"></a>Jmeter压测MySQL数据库(一)(原创)</h1><h2 id="下载Mysql驱动（JDBC）"><a href="#下载Mysql驱动（JDBC）" class="headerlink" title="下载Mysql驱动（JDBC）"></a>下载Mysql驱动（JDBC）</h2><p>JDBC（Java DataBase Connectivity,java数据库连接）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。JDBC提供了一种基准，据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序</p>
+<ol>
+<li><p>进入MySQL官网，直达连接<a href="https://dev.mysql.com/downloads/connector/j/" target="_blank" rel="noopener">Mysql_JDBC</a></p>
+</li>
+<li><p>点击“Looking for the latest GA version?”,选择ZIP的格式下载，如：<br><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/Zip%E5%8C%85%E4%B8%8B%E8%BD%BD.png" alt="ZIP包下载"></p>
+</li>
+<li><p>下载完解压后，把里面的.Jar包拷贝至Jmeter的bin文件夹中</p>
+</li>
+</ol>
+<h2 id="Jmeter-配置压测MySQL环境"><a href="#Jmeter-配置压测MySQL环境" class="headerlink" title="Jmeter 配置压测MySQL环境"></a>Jmeter 配置压测MySQL环境</h2><h3 id="Jmeter配置Jar包"><a href="#Jmeter配置Jar包" class="headerlink" title="Jmeter配置Jar包"></a>Jmeter配置Jar包</h3><ol>
+<li>测试计划–添加目录或jar包到ClassPath–浏览，选择刚刚下载JDBC的jar包 </li>
+</ol>
+<p><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E6%B7%BB%E5%8A%A0jar%E5%8C%85.png" alt></p>
+<h3 id="Jmeter配置JDBC-Connection-Configuration"><a href="#Jmeter配置JDBC-Connection-Configuration" class="headerlink" title="Jmeter配置JDBC Connection Configuration"></a>Jmeter配置JDBC Connection Configuration</h3><ol>
+<li>设置线程组，配置JDBC连接池</li>
+</ol>
+<p><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E8%AE%BE%E7%BD%AE%E7%BA%BF%E7%A8%8B%E7%BB%84.png" alt></p>
+<p><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E8%AE%BE%E7%BD%AE%E8%BF%9E%E6%8E%A5%E6%B1%A0.png" alt></p>
+<ol start="2">
+<li>JDBC Connection Configuration 配置项讲解<h6 id="核心配置"><a href="#核心配置" class="headerlink" title="核心配置"></a>核心配置</h6></li>
+</ol>
+<blockquote>
+<p>Variable Name for created pool：JDBC连接池变量名，后续JDBC Request需要配置</p>
+</blockquote>
+<blockquote>
+<p>Max Number of connections : 最大连接数</p>
+</blockquote>
+<blockquote>
+<p>MAX wait :最大等待时间</p>
+</blockquote>
+<blockquote>
+<p>Auto Commit: 是否自动提交事务</p>
+</blockquote>
+<h6 id="Database-Connection-Configuration"><a href="#Database-Connection-Configuration" class="headerlink" title="Database Connection Configuration"></a>Database Connection Configuration</h6><blockquote>
+<p>DataBase URL : 数据库连接地址</p>
+</blockquote>
+<blockquote>
+<p>jdbc:mysql://localhost:3306/studysql?serverTimezone=UTC&amp;characterEncoding=utf-8</p>
+</blockquote>
+<blockquote>
+<p>注：studysql为库名</p>
+</blockquote>
+<blockquote>
+<p>JDBC Driver Class : 数据库驱动，选择对应的mysql</p>
+</blockquote>
+<blockquote>
+<p>一般MySQL选择为：com.mysql.jdbc.Driver</p>
+</blockquote>
+<blockquote>
+<p>username:数据库用户名</p>
+</blockquote>
+<blockquote>
+<p>password:数据库密码</p>
+</blockquote>
+<p><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%20%E5%8E%8B%E6%B5%8BMysql/%E9%85%8D%E7%BD%AE%E9%A1%B9.png" alt="JDBC Connection Configuration配置项"></p>
 
       
     </div>
@@ -423,8 +443,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/09/优秀资源链接/" rel="next" title="优秀资源链接">
-                <i class="fa fa-chevron-left"></i> 优秀资源链接
+              <a href="/2019/05/31/Jmeter安装方法/" rel="next" title="Jmeter安装方法(原创)">
+                <i class="fa fa-chevron-left"></i> Jmeter安装方法(原创)
               </a>
             
           </div>
@@ -433,8 +453,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/17/Jmeter接口之代理服务器录制脚本/" rel="prev" title="Jmeter接口之代理服务器录制脚本(原创)">
-                Jmeter接口之代理服务器录制脚本(原创) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/03/Jmeter压测Mysql数据库-2/" rel="prev" title="Jmeter压测Mysql数据库(二)(原创)">
+                Jmeter压测Mysql数据库(二)(原创) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -569,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter接口测试之HTTP链接带Json参数-原创"><span class="nav-number">1.</span> <span class="nav-text">Jmeter接口测试之HTTP链接带Json参数(原创)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取API接口及Json数据"><span class="nav-number">1.1.</span> <span class="nav-text">获取API接口及Json数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jmeter接口测试流程"><span class="nav-number">1.2.</span> <span class="nav-text">Jmeter接口测试流程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter压测MySQL数据库-一-原创"><span class="nav-number">1.</span> <span class="nav-text">Jmeter压测MySQL数据库(一)(原创)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载Mysql驱动（JDBC）"><span class="nav-number">1.1.</span> <span class="nav-text">下载Mysql驱动（JDBC）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jmeter-配置压测MySQL环境"><span class="nav-number">1.2.</span> <span class="nav-text">Jmeter 配置压测MySQL环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Jmeter配置Jar包"><span class="nav-number">1.2.1.</span> <span class="nav-text">Jmeter配置Jar包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jmeter配置JDBC-Connection-Configuration"><span class="nav-number">1.2.2.</span> <span class="nav-text">Jmeter配置JDBC Connection Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#核心配置"><span class="nav-number">1.2.2.0.0.1.</span> <span class="nav-text">核心配置</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Database-Connection-Configuration"><span class="nav-number">1.2.2.0.0.2.</span> <span class="nav-text">Database Connection Configuration</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
