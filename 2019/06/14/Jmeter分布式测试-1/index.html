@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="Jmeter分布式测试(一)（原创） 由于单台机器向服务器发起压测时，受限于单台机器的内存，CPU等硬件信息，在压测线程较多时，压测机器会成为压测的瓶颈，所以我们希望能有多台机器向服务器同时发起压测，并收集压测信息。Jmeter为我们提供了良好的分布式压测支持。 原理下图为官网提供的压测示意图： Target：目标机器，即我们想要压测的服务器 Slaves：压测机或奴隶机，是直接向服务器发起压测的">
+<meta name="description" content="Jmeter分布式测试(一) 由于单台机器向服务器发起压测时，受限于单台机器的内存，CPU等硬件信息，在压测线程较多时，压测机器会成为压测的瓶颈，所以我们希望能有多台机器向服务器同时发起压测，并收集压测信息。Jmeter为我们提供了良好的分布式压测支持。 原理下图为官网提供的压测示意图： Target：目标机器，即我们想要压测的服务器 Slaves：压测机或奴隶机，是直接向服务器发起压测的机器 M">
 <meta name="keywords" content="Jmeter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jmeter分布式测试(一)（原创）">
+<meta property="og:title" content="Jmeter分布式测试(一)">
 <meta property="og:url" content="http://yoursite.com/2019/06/14/Jmeter分布式测试-1/index.html">
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
-<meta property="og:description" content="Jmeter分布式测试(一)（原创） 由于单台机器向服务器发起压测时，受限于单台机器的内存，CPU等硬件信息，在压测线程较多时，压测机器会成为压测的瓶颈，所以我们希望能有多台机器向服务器同时发起压测，并收集压测信息。Jmeter为我们提供了良好的分布式压测支持。 原理下图为官网提供的压测示意图： Target：目标机器，即我们想要压测的服务器 Slaves：压测机或奴隶机，是直接向服务器发起压测的">
+<meta property="og:description" content="Jmeter分布式测试(一) 由于单台机器向服务器发起压测时，受限于单台机器的内存，CPU等硬件信息，在压测线程较多时，压测机器会成为压测的瓶颈，所以我们希望能有多台机器向服务器同时发起压测，并收集压测信息。Jmeter为我们提供了良好的分布式压测支持。 原理下图为官网提供的压测示意图： Target：目标机器，即我们想要压测的服务器 Slaves：压测机或奴隶机，是直接向服务器发起压测的机器 M">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B%E5%8E%9F%E7%90%86.png">
 <meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%BE%E7%A4%BA.png">
-<meta property="og:updated_time" content="2019-06-14T07:04:29.913Z">
+<meta property="og:updated_time" content="2019-06-18T03:35:06.395Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jmeter分布式测试(一)（原创）">
-<meta name="twitter:description" content="Jmeter分布式测试(一)（原创） 由于单台机器向服务器发起压测时，受限于单台机器的内存，CPU等硬件信息，在压测线程较多时，压测机器会成为压测的瓶颈，所以我们希望能有多台机器向服务器同时发起压测，并收集压测信息。Jmeter为我们提供了良好的分布式压测支持。 原理下图为官网提供的压测示意图： Target：目标机器，即我们想要压测的服务器 Slaves：压测机或奴隶机，是直接向服务器发起压测的">
+<meta name="twitter:title" content="Jmeter分布式测试(一)">
+<meta name="twitter:description" content="Jmeter分布式测试(一) 由于单台机器向服务器发起压测时，受限于单台机器的内存，CPU等硬件信息，在压测线程较多时，压测机器会成为压测的瓶颈，所以我们希望能有多台机器向服务器同时发起压测，并收集压测信息。Jmeter为我们提供了良好的分布式压测支持。 原理下图为官网提供的压测示意图： Target：目标机器，即我们想要压测的服务器 Slaves：压测机或奴隶机，是直接向服务器发起压测的机器 M">
 <meta name="twitter:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B%E5%8E%9F%E7%90%86.png">
 
 
@@ -129,7 +129,7 @@
 
 
 
-  <title>Jmeter分布式测试(一)（原创） | 陈宏杰's 私人小巢</title>
+  <title>Jmeter分布式测试(一) | 陈宏杰's 私人小巢</title>
   
 
 
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Jmeter分布式测试(一)（原创）</h1>
+          <h1 class="post-title" itemprop="name headline">Jmeter分布式测试(一)</h1>
         
 
         <div class="post-meta">
@@ -355,7 +355,7 @@
       
 
       
-        <h1 id="Jmeter分布式测试-一-（原创）"><a href="#Jmeter分布式测试-一-（原创）" class="headerlink" title="Jmeter分布式测试(一)（原创）"></a>Jmeter分布式测试(一)（原创）</h1><p> 由于单台机器向服务器发起压测时，受限于单台机器的内存，CPU等硬件信息，在压测线程较多时，压测机器会成为压测的瓶颈，所以我们希望能有多台机器向服务器同时发起压测，并收集压测信息。Jmeter为我们提供了良好的分布式压测支持。</p>
+        <h1 id="Jmeter分布式测试-一"><a href="#Jmeter分布式测试-一" class="headerlink" title="Jmeter分布式测试(一)"></a>Jmeter分布式测试(一)</h1><p> 由于单台机器向服务器发起压测时，受限于单台机器的内存，CPU等硬件信息，在压测线程较多时，压测机器会成为压测的瓶颈，所以我们希望能有多台机器向服务器同时发起压测，并收集压测信息。Jmeter为我们提供了良好的分布式压测支持。</p>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>下图为官网提供的压测示意图：<br><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B%E5%8E%9F%E7%90%86.png" alt></p>
 <p>Target：目标机器，即我们想要压测的服务器</p>
 <p>Slaves：压测机或奴隶机，是直接向服务器发起压测的机器</p>
@@ -435,8 +435,8 @@ export JRE_HOME=$JAVA_HOME/jre
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/10/Jmeter接口之安装插件及服务器端监控/" rel="next" title="Jmeter之安装插件及服务器端监控(原创)">
-                <i class="fa fa-chevron-left"></i> Jmeter之安装插件及服务器端监控(原创)
+              <a href="/2019/06/10/Jmeter接口之安装插件及服务器端监控/" rel="next" title="Jmeter之安装插件及服务器端监控">
+                <i class="fa fa-chevron-left"></i> Jmeter之安装插件及服务器端监控
               </a>
             
           </div>
@@ -445,8 +445,8 @@ export JRE_HOME=$JAVA_HOME/jre
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/14/Jmeter分布式测试-2/" rel="prev" title="Jmeter分布式测试(二)（原创）">
-                Jmeter分布式测试(二)（原创） <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/14/Jmeter分布式测试-2/" rel="prev" title="Jmeter分布式测试(二)">
+                Jmeter分布式测试(二) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -526,7 +526,7 @@ export JRE_HOME=$JAVA_HOME/jre
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -581,7 +581,7 @@ export JRE_HOME=$JAVA_HOME/jre
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter分布式测试-一-（原创）"><span class="nav-number">1.</span> <span class="nav-text">Jmeter分布式测试(一)（原创）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.2.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux安装JDK"><span class="nav-number">1.2.1.</span> <span class="nav-text">Linux安装JDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux安装Jmeter"><span class="nav-number">1.2.2.</span> <span class="nav-text">Linux安装Jmeter</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter分布式测试-一"><span class="nav-number">1.</span> <span class="nav-text">Jmeter分布式测试(一)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.2.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux安装JDK"><span class="nav-number">1.2.1.</span> <span class="nav-text">Linux安装JDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux安装Jmeter"><span class="nav-number">1.2.2.</span> <span class="nav-text">Linux安装Jmeter</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

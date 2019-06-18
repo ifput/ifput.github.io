@@ -260,6 +260,163 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/Ant-Jmeter集成部署/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChenHJ">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈宏杰's 私人小巢">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/18/Ant-Jmeter集成部署/" itemprop="url">Ant+Jmeter集成部署</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-18T15:22:33+08:00">
+                2019-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/3-测试理论/" itemprop="url" rel="index">
+                    <span itemprop="name">3.测试理论</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Ant+Jmeter集成部署ant 环境准备
+安装JDK环境，此过程略过
+
+下载ant，官方下载路径https://ant.apache.org/bindownload.cgi,选择相应系统的ant，本次安装下载了apache-ant-1.10.6-bin.zip，解压即可。
+
+配置环境变量
+
+系统
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/18/Ant-Jmeter集成部署/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+	  
+    
+      
+	  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/Ubutun安装Jenkins/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -433,7 +590,7 @@ wget -q -O  - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/14/Jmeter分布式测试-2/" itemprop="url">Jmeter分布式测试(二)（原创）</a></h1>
+                <a class="post-title-link" href="/2019/06/14/Jmeter分布式测试-2/" itemprop="url">Jmeter分布式测试(二)</a></h1>
         
 
         <div class="post-meta">
@@ -507,10 +664,10 @@ wget -q -O  - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key
       
         
           
-          Jmeter分布式测试(二)（原创）在安装完JDK与Jmeter后，接下去需配置Master机器与Salve机器
+          Jmeter分布式测试(二)在安装完JDK与Jmeter后，接下去需配置Master机器与Salve机器
 Master机器配置Master机器需配置Jmeter安装目录下bin文件夹中jmeter.properties中编辑Remote Hosts
 
-remote_hosts填入Salves
+remote_hosts填入Salves的IP地
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -586,7 +743,7 @@ remote_hosts填入Salves
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/14/Jmeter分布式测试-1/" itemprop="url">Jmeter分布式测试(一)（原创）</a></h1>
+                <a class="post-title-link" href="/2019/06/14/Jmeter分布式测试-1/" itemprop="url">Jmeter分布式测试(一)</a></h1>
         
 
         <div class="post-meta">
@@ -660,9 +817,9 @@ remote_hosts填入Salves
       
         
           
-          Jmeter分布式测试(一)（原创） 由于单台机器向服务器发起压测时，受限于单台机器的内存，CPU等硬件信息，在压测线程较多时，压测机器会成为压测的瓶颈，所以我们希望能有多台机器向服务器同时发起压测，并收集压测信息。Jmeter为我们提供了良好的分布式压测支持。
+          Jmeter分布式测试(一) 由于单台机器向服务器发起压测时，受限于单台机器的内存，CPU等硬件信息，在压测线程较多时，压测机器会成为压测的瓶颈，所以我们希望能有多台机器向服务器同时发起压测，并收集压测信息。Jmeter为我们提供了良好的分布式压测支持。
 原理下图为官网提供的压测示意图：
-T
+Targe
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -738,7 +895,7 @@ T
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/10/Jmeter接口之安装插件及服务器端监控/" itemprop="url">Jmeter之安装插件及服务器端监控(原创)</a></h1>
+                <a class="post-title-link" href="/2019/06/10/Jmeter接口之安装插件及服务器端监控/" itemprop="url">Jmeter之安装插件及服务器端监控</a></h1>
         
 
         <div class="post-meta">
@@ -812,13 +969,13 @@ T
       
         
           
-          Jmeter接口之安装插件及服务器端监控(原创)下载插件管理器
+          Jmeter接口之安装插件及服务器端监控下载插件管理器
 下载Jmeter插件管理器，下载地址：Jmeter-plugins官方下载
  另:Jmeter所有官方插件集合
 
 下载的plugins-manager.jar放到Jmeter文件夹的lib/ext文件夹中
 
-重新启动Jmeter，在操作
+重新启动Jmeter，在操作栏运行中
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -894,7 +1051,7 @@ T
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/03/Jmeter压测Mysql数据库-2/" itemprop="url">Jmeter压测Mysql数据库(二)(原创)</a></h1>
+                <a class="post-title-link" href="/2019/06/03/Jmeter压测Mysql数据库-2/" itemprop="url">Jmeter压测Mysql数据库(二)</a></h1>
         
 
         <div class="post-meta">
@@ -968,11 +1125,11 @@ T
       
         
           
-          Jmeter压测MySQL数据库(二)(原创)添加JDBC Request
+          Jmeter压测MySQL数据库(二)添加JDBC Request
 
 重要参数
 variable name of pool declared in JDBC connection configuration，填写JDBC connection configuration中设置的变量名
-Que
+Query T
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1048,7 +1205,7 @@ Que
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/31/Jmeter压测Mysql数据库-1/" itemprop="url">Jmeter压测Mysql数据库(一)(原创)</a></h1>
+                <a class="post-title-link" href="/2019/05/31/Jmeter压测Mysql数据库-1/" itemprop="url">Jmeter压测Mysql数据库(一)</a></h1>
         
 
         <div class="post-meta">
@@ -1122,7 +1279,7 @@ Que
       
         
           
-          Jmeter压测MySQL数据库(一)(原创)下载Mysql驱动（JDBC）JDBC（Java DataBase Connectivity,java数据库连接）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。JDBC提供了一种基
+          Jmeter压测MySQL数据库(一)下载Mysql驱动（JDBC）JDBC（Java DataBase Connectivity,java数据库连接）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。JDBC提供了一种基准，据此
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1198,7 +1355,7 @@ Que
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/31/Jmeter安装方法/" itemprop="url">Jmeter安装方法(原创)</a></h1>
+                <a class="post-title-link" href="/2019/05/31/Jmeter安装方法/" itemprop="url">Jmeter安装方法</a></h1>
         
 
         <div class="post-meta">
@@ -1272,7 +1429,7 @@ Que
       
         
           
-          Jmeter安装方法(原创)
+          Jmeter安装方法
 由于Jmeter有Java语言编写，所以需要JDK环境，点击下载JDKJDK官方下载连接
 
 
@@ -1286,7 +1443,7 @@ Que
 
 
 官网一般提供两个版本Source和 Binary，二者的区别是：
- Sourc
+ Source 是源
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1362,7 +1519,7 @@ Que
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/29/Jmeter接口之多层嵌套JSON及打印提取的参数/" itemprop="url">Jmeter接口之多层嵌套JSON及打印提取的参数(原创)</a></h1>
+                <a class="post-title-link" href="/2019/05/29/Jmeter接口之多层嵌套JSON及打印提取的参数/" itemprop="url">Jmeter接口之多层嵌套JSON及打印提取的参数</a></h1>
         
 
         <div class="post-meta">
@@ -1436,7 +1593,7 @@ Que
       
         
           
-          Jmeter接口之多层嵌套JSON及打印提取的参数(原创)
+          Jmeter接口之多层嵌套JSON及打印提取的参数
 目标提取JSON串中相应数据，一般该数据为动态，我们想要获取出来，然后作为后续请求中的重要参数
 
 
@@ -1445,7 +1602,7 @@ Que
 
 
 
-配置BeanShellPostProcessor
+配置BeanShellPostProcessor，在调试
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1649,159 +1806,6 @@ Que
 
 	  
     
-      
-	  
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/什么是dubbo-zookeeper/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ChenHJ">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈宏杰's 私人小巢">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/15/什么是dubbo-zookeeper/" itemprop="url">什么是dubbo-zookeeper</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T16:54:54+08:00">
-                2019-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/3-测试理论/" itemprop="url" rel="index">
-                    <span itemprop="name">3.测试理论</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          一、dubbo是什么？1）本质：一个Jar包,一个分布式框架,，一个远程服务调用的分布式框架。
-既然是新手教学，肯定很多同学不明白什么是分布式和远程服务调用，为什么要分布式，为什么要远程调用。我简单画个对比图说明（图1看到图2。画板画的，勿喷）。
-
-你想一下，以前什么的都在一个服务器上，调用方法直接
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/15/什么是dubbo-zookeeper/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-	  
-    
   </section>
 
   
@@ -1854,7 +1858,7 @@ Que
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

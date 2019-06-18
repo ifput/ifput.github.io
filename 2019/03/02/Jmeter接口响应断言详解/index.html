@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Jmeter响应断言详解(原创) 响应断言 ：对服务器的响应进行断言校验 Apply to应用范围: main sample and sub sample, main sample only , sub-sample only , jmeter variable 关于应用范围，我们大多数勾选“main sample only” 就足够了，因为我们一个请求，实质上只有一个请求。但是当我们发一个请求时">
+<meta name="description" content="Jmeter响应断言详解 响应断言 ：对服务器的响应进行断言校验 Apply to应用范围: main sample and sub sample, main sample only , sub-sample only , jmeter variable 关于应用范围，我们大多数勾选“main sample only” 就足够了，因为我们一个请求，实质上只有一个请求。但是当我们发一个请求时，可以触">
 <meta name="keywords" content="Jmeter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jmeter接口之响应断言详解(原创)">
+<meta property="og:title" content="Jmeter接口之响应断言详解">
 <meta property="og:url" content="http://yoursite.com/2019/03/02/Jmeter接口响应断言详解/index.html">
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
-<meta property="og:description" content="Jmeter响应断言详解(原创) 响应断言 ：对服务器的响应进行断言校验 Apply to应用范围: main sample and sub sample, main sample only , sub-sample only , jmeter variable 关于应用范围，我们大多数勾选“main sample only” 就足够了，因为我们一个请求，实质上只有一个请求。但是当我们发一个请求时">
+<meta property="og:description" content="Jmeter响应断言详解 响应断言 ：对服务器的响应进行断言校验 Apply to应用范围: main sample and sub sample, main sample only , sub-sample only , jmeter variable 关于应用范围，我们大多数勾选“main sample only” 就足够了，因为我们一个请求，实质上只有一个请求。但是当我们发一个请求时，可以触">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/jmeter%E7%95%8C%E9%9D%A2.png">
-<meta property="og:updated_time" content="2019-06-14T02:15:31.141Z">
+<meta property="og:updated_time" content="2019-06-18T03:35:32.307Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jmeter接口之响应断言详解(原创)">
-<meta name="twitter:description" content="Jmeter响应断言详解(原创) 响应断言 ：对服务器的响应进行断言校验 Apply to应用范围: main sample and sub sample, main sample only , sub-sample only , jmeter variable 关于应用范围，我们大多数勾选“main sample only” 就足够了，因为我们一个请求，实质上只有一个请求。但是当我们发一个请求时">
+<meta name="twitter:title" content="Jmeter接口之响应断言详解">
+<meta name="twitter:description" content="Jmeter响应断言详解 响应断言 ：对服务器的响应进行断言校验 Apply to应用范围: main sample and sub sample, main sample only , sub-sample only , jmeter variable 关于应用范围，我们大多数勾选“main sample only” 就足够了，因为我们一个请求，实质上只有一个请求。但是当我们发一个请求时，可以触">
 <meta name="twitter:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/jmeter%E7%95%8C%E9%9D%A2.png">
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>Jmeter接口之响应断言详解(原创) | 陈宏杰's 私人小巢</title>
+  <title>Jmeter接口之响应断言详解 | 陈宏杰's 私人小巢</title>
   
 
 
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Jmeter接口之响应断言详解(原创)</h1>
+          <h1 class="post-title" itemprop="name headline">Jmeter接口之响应断言详解</h1>
         
 
         <div class="post-meta">
@@ -354,7 +354,7 @@
       
 
       
-        <h1 id="Jmeter响应断言详解-原创"><a href="#Jmeter响应断言详解-原创" class="headerlink" title="Jmeter响应断言详解(原创)"></a>Jmeter响应断言详解(原创)</h1><p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/jmeter%E7%95%8C%E9%9D%A2.png" alt></p>
+        <h1 id="Jmeter响应断言详解"><a href="#Jmeter响应断言详解" class="headerlink" title="Jmeter响应断言详解"></a>Jmeter响应断言详解</h1><p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/jmeter%E7%95%8C%E9%9D%A2.png" alt></p>
 <h2 id="响应断言-："><a href="#响应断言-：" class="headerlink" title="响应断言 ："></a>响应断言 ：</h2><p>对服务器的响应进行断言校验</p>
 <h2 id="Apply-to"><a href="#Apply-to" class="headerlink" title="Apply to"></a>Apply to</h2><p>应用范围: main sample and sub sample, main sample only , sub-sample only , jmeter variable</p>
 <p>关于应用范围，我们大多数勾选“main sample only” 就足够了，因为我们一个请求，实质上只有一个请求。但是当我们发一个请求时，可以触发多个服务器请求，类似于ajax那种，那么就有main sample  和 sub-sample之分了。此外，对于有重定向的请求，并且勾选了“跟随重定向”， 那么这两个请求都是 sub-sample，重定向后的请求（第二个请求）就是main-sample,关于main sample and sub sample，有兴趣的可以看看这个帖子:<a href="http://stackoverflow.com/questions/28214936/jmeter-in-which-scenario-i-can-use-main-sample-or-sub-sample-or-both-for-te" target="_blank" rel="noopener">帖子</a></p>
@@ -522,7 +522,7 @@ Location: http://www.baidu.com/404.html
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -577,7 +577,7 @@ Location: http://www.baidu.com/404.html
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter响应断言详解-原创"><span class="nav-number">1.</span> <span class="nav-text">Jmeter响应断言详解(原创)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应断言-："><span class="nav-number">1.1.</span> <span class="nav-text">响应断言 ：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apply-to"><span class="nav-number">1.2.</span> <span class="nav-text">Apply to</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应字段"><span class="nav-number">1.3.</span> <span class="nav-text">响应字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模式匹配规则"><span class="nav-number">1.4.</span> <span class="nav-text">模式匹配规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#包括：返回结果包括你指定的内容，支持正则匹配"><span class="nav-number">1.4.1.</span> <span class="nav-text">包括：返回结果包括你指定的内容，支持正则匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配："><span class="nav-number">1.4.2.</span> <span class="nav-text">匹配：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Equals-返回结果与你指定断言完全一致"><span class="nav-number">1.4.3.</span> <span class="nav-text">Equals : 返回结果与你指定断言完全一致</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SubString：与-“包括”差不多，都是指返回结果包括你指定的内容，但是subString不支持正则字符串"><span class="nav-number">1.4.4.</span> <span class="nav-text">SubString：与 “包括”差不多，都是指返回结果包括你指定的内容，但是subString不支持正则字符串</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter响应断言详解"><span class="nav-number">1.</span> <span class="nav-text">Jmeter响应断言详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应断言-："><span class="nav-number">1.1.</span> <span class="nav-text">响应断言 ：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apply-to"><span class="nav-number">1.2.</span> <span class="nav-text">Apply to</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应字段"><span class="nav-number">1.3.</span> <span class="nav-text">响应字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模式匹配规则"><span class="nav-number">1.4.</span> <span class="nav-text">模式匹配规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#包括：返回结果包括你指定的内容，支持正则匹配"><span class="nav-number">1.4.1.</span> <span class="nav-text">包括：返回结果包括你指定的内容，支持正则匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配："><span class="nav-number">1.4.2.</span> <span class="nav-text">匹配：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Equals-返回结果与你指定断言完全一致"><span class="nav-number">1.4.3.</span> <span class="nav-text">Equals : 返回结果与你指定断言完全一致</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SubString：与-“包括”差不多，都是指返回结果包括你指定的内容，但是subString不支持正则字符串"><span class="nav-number">1.4.4.</span> <span class="nav-text">SubString：与 “包括”差不多，都是指返回结果包括你指定的内容，但是subString不支持正则字符串</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
