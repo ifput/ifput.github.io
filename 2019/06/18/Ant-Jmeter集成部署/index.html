@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="Ant+Jmeter集成部署ant 环境准备 安装JDK环境，此过程略过  下载ant，官方下载路径https://ant.apache.org/bindownload.cgi,选择相应系统的ant，本次安装下载了apache-ant-1.10.6-bin.zip，解压即可。  配置环境变量  系统变量 ANT_HOME         D:\Test Software\apache-ant-1.">
+<meta name="description" content="Ant+Jmeter集成部署ant 环境准备 安装JDK环境，此过程略过  下载ant，官方下载路径https://ant.apache.org/bindownload.cgi,选择相应系统的ant，本次安装下载了apache-ant-1.10.6-bin.zip，解压即可。  配置环境变量  windows系统变量 ANT_HOME         D:\Test Software\apache">
 <meta name="keywords" content="测试环境">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ant+Jmeter集成部署">
 <meta property="og:url" content="http://yoursite.com/2019/06/18/Ant-Jmeter集成部署/index.html">
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
-<meta property="og:description" content="Ant+Jmeter集成部署ant 环境准备 安装JDK环境，此过程略过  下载ant，官方下载路径https://ant.apache.org/bindownload.cgi,选择相应系统的ant，本次安装下载了apache-ant-1.10.6-bin.zip，解压即可。  配置环境变量  系统变量 ANT_HOME         D:\Test Software\apache-ant-1.">
+<meta property="og:description" content="Ant+Jmeter集成部署ant 环境准备 安装JDK环境，此过程略过  下载ant，官方下载路径https://ant.apache.org/bindownload.cgi,选择相应系统的ant，本次安装下载了apache-ant-1.10.6-bin.zip，解压即可。  配置环境变量  windows系统变量 ANT_HOME         D:\Test Software\apache">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/Ant/1.%E8%BE%93%E5%85%A5ant.png">
 <meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/Ant/2.%E6%89%A7%E8%A1%8C%E6%88%90%E5%8A%9F.png">
 <meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/Ant/3.%E6%8A%A5%E5%91%8A%E7%BB%93%E6%9E%9C.png">
-<meta property="og:updated_time" content="2019-06-18T08:13:54.419Z">
+<meta property="og:updated_time" content="2019-06-19T01:28:57.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ant+Jmeter集成部署">
-<meta name="twitter:description" content="Ant+Jmeter集成部署ant 环境准备 安装JDK环境，此过程略过  下载ant，官方下载路径https://ant.apache.org/bindownload.cgi,选择相应系统的ant，本次安装下载了apache-ant-1.10.6-bin.zip，解压即可。  配置环境变量  系统变量 ANT_HOME         D:\Test Software\apache-ant-1.">
+<meta name="twitter:description" content="Ant+Jmeter集成部署ant 环境准备 安装JDK环境，此过程略过  下载ant，官方下载路径https://ant.apache.org/bindownload.cgi,选择相应系统的ant，本次安装下载了apache-ant-1.10.6-bin.zip，解压即可。  配置环境变量  windows系统变量 ANT_HOME         D:\Test Software\apache">
 <meta name="twitter:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/Ant/1.%E8%BE%93%E5%85%A5ant.png">
 
 
@@ -363,13 +363,16 @@
 </li>
 <li><p>配置环境变量</p>
 <ul>
-<li><p>系统变量</p>
+<li><p>windows系统变量</p>
 <pre><code>ANT_HOME         D:\Test Software\apache-ant-1.10.6
 path             D:\Test Software\apache-ant-1.10.6\bin
 classpath        D:\Test Software\apache-ant-1.10.6\lib
 </code></pre></li>
+<li>linux系统环境变量:<br>  <a href="https://www.cnblogs.com/jij000/p/4523441.html" target="_blank" rel="noopener">https://www.cnblogs.com/jij000/p/4523441.html</a></li>
 </ul>
 </li>
+</ol>
+<ol start="4">
 <li><p>Jar包添加，将 Jmeter的extras目录中ant-jmeter-1.1.1.jar包拷贝至ant安装目录下的lib目录中</p>
 </li>
 <li><p>在CMD窗口中运行ant ，如下图则安装正确</p>
