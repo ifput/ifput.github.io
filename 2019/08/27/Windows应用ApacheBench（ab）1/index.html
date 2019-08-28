@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/ab/2.png">
 <meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/ab/3.png">
 <meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/ab/5.png">
-<meta property="og:updated_time" content="2019-08-27T09:59:47.784Z">
+<meta property="og:updated_time" content="2019-08-28T08:31:22.527Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows应用ApacheBench（ab）1">
 <meta name="twitter:description" content="Windows应用ApacheBench（ab）1什么是abApache Bench 简称ab，是 Apache 服务器的一个web压力测试工具。在装Apache服务器时一般都会预装该工具，但ab目前也可以单独使用，并且是免费的。ab是也能运行再Linux，是一个以命令形式进行压测的工具，ab可以创造多个线程对目标URL进行压测，容易上手。但是缺点就是没有图形化结果，不能监控。也不能对压测脚本进行">
@@ -441,7 +441,12 @@ Connect:       19   27   5.2     27      52
 Processing:    30  234  45.4    239     299
 Waiting:       27  138  72.2    138     290
 Total:         57  261  45.4    267     329
-#网络上消耗的时间的分解，各项数据的具体算法还不是很清楚
+
+#这几行组成的表格主要是针对响应时间也就是第一个Time per request进行细分和统计。一个请求的响应时间可以分成网络链接（Connect），系统处理（Processing）和等待（Waiting）三个部分。表中min表示最小值； mean表示平均值；[+/-sd]表示标准差（Standard Deviation） ，也称均方差（mean square error），这个概念在中学的数学课上学过，表示数据的离散程度，数值越大表示数据越分散，系统响应时间越不稳定。 median表示中位数； max当然就是表示最大值了。
+
+#需要注意的是表中的Total并不等于前三行数据相加，因为前三行的数据并不是在同一个请求中采集到的，可能某个请求的网络延迟最短，但是系统处理时间又是最长的呢。所以Total是从整个请求所需要的时间的角度来统计的。这里可以看到最慢的一个请求花费了195ms，这个数据可以在下面的表中得到验证。
+
+
 
 Percentage of the requests served within a certain time (ms)
   50%    267
@@ -506,6 +511,10 @@ Percentage of the requests served within a certain time (ms)
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/28/Windows应用ApacheBench（ab）2/" rel="prev" title="Windows应用ApacheBench（ab）2">
+                Windows应用ApacheBench（ab）2 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -584,7 +593,7 @@ Percentage of the requests served within a certain time (ms)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
