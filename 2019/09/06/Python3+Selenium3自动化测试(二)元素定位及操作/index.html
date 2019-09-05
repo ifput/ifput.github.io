@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/11.png">
 <meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/10.png">
 <meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/13.png">
-<meta property="og:updated_time" content="2019-09-05T08:08:57.796Z">
+<meta property="og:updated_time" content="2019-09-05T08:20:32.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python3+Selenium3自动化测试(二)元素定位及操作">
 <meta name="twitter:description" content="Python3+Selenium3自动化测试(二)元素定位及操作通过开发者工具查看页面元素打开火狐浏览器或谷歌浏览器，按F12则进入开发者工具模式，如下图：  打开被测网页的页面，通过鼠标右击，查看元素，可以看见页面元素有不同的标签名、属性值等信息，我们需要通过标签名或者属性值等信息来定位我们的被测元素。定位元素最重要的事情是要确保定位的元素在当前页面中的唯一性 页面元素的8种定位方法： 根据id">
@@ -370,33 +370,33 @@
 <p><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/11.png" style="zoom: 67%;"></p>
 <p>打开被测网页的页面，通过鼠标右击，查看元素，可以看见页面元素有不同的标签名、属性值等信息，我们需要通过标签名或者属性值等信息来定位我们的被测元素。定位元素最重要的事情是要确保定位的元素在当前页面中的唯一性</p>
 <h2 id="页面元素的8种定位方法："><a href="#页面元素的8种定位方法：" class="headerlink" title="页面元素的8种定位方法："></a>页面元素的8种定位方法：</h2><ol>
-<li><p>根据id进行定位:  </p>
-<p> find_element_by_id()  </p>
-</li>
+<li><p>根据id进行定位:</p>
+<pre><code>find_element_by_id()  
+</code></pre></li>
 <li><p>根据name进行定位  </p>
-<p> find_element_by_name()  </p>
-</li>
+<pre><code>find_element_by_name()  
+</code></pre></li>
 <li><p>根据class名进行定位 </p>
-<p> find_element_by_class_name()</p>
-</li>
+<pre><code>find_element_by_class_name()
+</code></pre></li>
 </ol>
 <p>PS：一般情况下，网页都会有id、name、class_name,优先推荐用这三种定位方式，因为这些属性一般是不会变动的，即使网页有更改，也不会影响脚本</p>
 <ol start="4">
 <li><p>根据标签名进行定位</p>
-<p> find_element_by_tag_name()  </p>
-</li>
+<pre><code>find_element_by_tag_name()
+</code></pre></li>
 <li><p>根据文本进行定位</p>
-<p> find_element_by_link_text()  </p>
-</li>
+<pre><code>find_element_by_link_text()
+</code></pre></li>
 <li><p>根据部分文本进行定位</p>
-<p> find_element_by_partial_link_text()</p>
-</li>
+<pre><code>find_element_by_partial_link_text()
+</code></pre></li>
 <li><p>根据Xpath路径进行定位</p>
-<p> find_element_by_Xpath()  </p>
-</li>
+<pre><code>find_element_by_Xpath()  
+</code></pre></li>
 <li><p>根据css路径进行定位</p>
-<p> find_element_by_css_selector() </p>
-</li>
+<pre><code>find_element_by_css_selector() 
+</code></pre></li>
 </ol>
 <p>PS：Xpath与CSS是比较万能的定位方式，当前面几种都不能用的时候，在推荐用这些方法</p>
 <h3 id="打开浏览器"><a href="#打开浏览器" class="headerlink" title="打开浏览器"></a>打开浏览器</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#导入webdriver</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line"><span class="comment">#根据相应的驱动实例化对象，若用谷歌浏览器则driver = webdriver.Chrome()</span></span><br><span class="line">driver = webdriver.Firefox()</span><br><span class="line"></span><br><span class="line"><span class="comment">#打开‘百度’</span></span><br><span class="line">driver.get(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#执行完上述代码，则浏览器会打开百度网页</span></span><br></pre></td></tr></table></figure>
@@ -406,41 +406,44 @@
 <h3 id="定位到元素后的操作"><a href="#定位到元素后的操作" class="headerlink" title="定位到元素后的操作"></a>定位到元素后的操作</h3><p>定位到元素之后，我们会对元素进行一系列操作，如点击、输入数据，常用的元素操作有如下几种：</p>
 <ol>
 <li><p>清空  </p>
-<p> clear()  </p>
-</li>
+<pre><code>clear()
+</code></pre></li>
 <li><p>输入内容  </p>
-<p> send_keys()</p>
-</li>
+<pre><code>send_keys()
+</code></pre></li>
 <li><p>点击元素、按钮、超链接</p>
-<p> click()</p>
-</li>
+<pre><code>click()
+</code></pre></li>
 <li><p>提交表单内容</p>
-<p> submit()<br>定位到元素后，获得元素的属性</p>
-</li>
+<pre><code>submit()
+</code></pre></li>
+</ol>
+<p>定位到元素后，获得元素的属性</p>
+<ol>
 <li><p>标签名</p>
-<p> tag_name</p>
-</li>
+<pre><code>tag_name
+</code></pre></li>
 <li><p>文本内容</p>
-<p> text</p>
-</li>
+<pre><code>text
+</code></pre></li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#导入webdriver</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line">driver = webdriver.Firefox()</span><br><span class="line">driver.get(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line">path_Xpath = <span class="string">'//*[@id="kw"]'</span>   <span class="comment">#百度输入框的Xpath路径</span></span><br><span class="line">path_CSS = <span class="string">'#kw'</span>               <span class="comment">#百度输入框的CSS路径</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#通过Xpath路径查找到输入框，并点击输入框</span></span><br><span class="line">driver.find_element_by_Xpath(path_Xpath).click()</span><br><span class="line"><span class="comment">#通过CSS路径查找到输入框，并输入“www.ifput.com”</span></span><br><span class="line">driver.find_element_by_css_selector(path_CSS).send_keys(<span class="string">'www.ifput.com'</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="针对浏览器的常用操作"><a href="#针对浏览器的常用操作" class="headerlink" title="针对浏览器的常用操作"></a>针对浏览器的常用操作</h3><p>针对浏览器的操作：</p>
 <ol>
 <li><p>后退页面  </p>
-<p> back()  </p>
-</li>
+<pre><code>back()
+</code></pre></li>
 <li><p>窗口最大化  </p>
-<p> maximize_window()  </p>
-</li>
+<pre><code>maximize_window()
+</code></pre></li>
 <li><p>查看网页的title值</p>
-<p> title</p>
-</li>
+<pre><code>title
+</code></pre></li>
 <li><p>查看网页的地址值</p>
-<p> current_url</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#导入webdriver</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line">driver = webdriver.Firefox()</span><br><span class="line">driver.get(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line">driver.maximize_window()  <span class="comment">#最大化窗口</span></span><br><span class="line">print(driver.title) <span class="comment">#打印网页标题</span></span><br><span class="line">print(driver.current_url) <span class="comment">#打印当前网址</span></span><br><span class="line">driver.back() <span class="comment">#浏览器后退</span></span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>current_url
+</code></pre></li>
 </ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#导入webdriver</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line">driver = webdriver.Firefox()</span><br><span class="line">driver.get(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line">driver.maximize_window()  <span class="comment">#最大化窗口</span></span><br><span class="line">print(driver.title) <span class="comment">#打印网页标题</span></span><br><span class="line">print(driver.current_url) <span class="comment">#打印当前网址</span></span><br><span class="line">driver.back() <span class="comment">#浏览器后退</span></span><br></pre></td></tr></table></figure>
 <p>案例1 通过百度进行搜索</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line">driver = webdriver.Firefox()</span><br><span class="line">baiduUrl = <span class="string">'http://www.baidu.com'</span></span><br><span class="line">driver.get(baiduUrl)</span><br><span class="line">print(driver.title) <span class="comment">#打印网页标题</span></span><br><span class="line">print(driver.current_url) <span class="comment">#打印当前网址</span></span><br><span class="line"></span><br><span class="line">elementId = <span class="string">'kw'</span>  <span class="comment">#输入框元素的ID属性值</span></span><br><span class="line">driver.find_element_by_id(elementId).send_keys(<span class="string">'python'</span>) <span class="comment">#在搜索框内输入搜索内容</span></span><br><span class="line">sercharButtenId = <span class="string">'su'</span> <span class="comment">#'百度一下'按钮 ID属性值</span></span><br><span class="line">driver.find_element_by_id(sercharButtenId).click() <span class="comment">#点击‘百度一下’</span></span><br><span class="line"></span><br><span class="line">print(driver.current_url) <span class="comment">#打印当前网址</span></span><br><span class="line"></span><br><span class="line">driver.close()  <span class="comment">#关闭浏览器</span></span><br></pre></td></tr></table></figure>
 <p>运行结果：</p>
