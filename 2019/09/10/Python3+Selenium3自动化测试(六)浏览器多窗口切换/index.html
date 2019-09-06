@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Jmeter,">
+  <meta name="keywords" content="Python3+Selenium3,">
 
 
 
@@ -79,23 +79,21 @@
 
 
 
-<meta name="description" content="Jmeter安装方法 由于Jmeter有Java语言编写，所以需要JDK环境，点击下载JDKJDK官方下载连接     先下载Jmeter，可以点击连接直接跳转至官方网站下载 Jmeter官方下载连接       官网一般提供两个版本Source和 Binary，二者的区别是：  Source 是源代码版，需要自己编辑，适合二次再开发  Binaries是可执行版，直接下载解压就可以拿来用的，他已">
-<meta name="keywords" content="Jmeter">
+<meta name="description" content="Python3+Selenium3自动化测试(六)浏览器多窗口切换说明有时候我们打开一个链接后，浏览器会新增一个窗口，但当前selenium只能针对当前的浏览器进行操作，不能对新打开的窗口进行操作，这时候我们就要切换到新的窗口，继续我们的测试 selenium中有提供一种切换窗口的方法，switch_to.window(目标窗口句柄) 案例 切换浏览器窗口为了测试多窗口切换，我们先把火狐浏览器设置">
+<meta name="keywords" content="Python3+Selenium3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jmeter安装方法">
-<meta property="og:url" content="http://yoursite.com/2019/05/31/Jmeter安装方法/index.html">
+<meta property="og:title" content="Python3+Selenium3自动化测试(六)浏览器多窗口切换">
+<meta property="og:url" content="http://yoursite.com/2019/09/10/Python3+Selenium3自动化测试(六)浏览器多窗口切换/index.html">
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
-<meta property="og:description" content="Jmeter安装方法 由于Jmeter有Java语言编写，所以需要JDK环境，点击下载JDKJDK官方下载连接     先下载Jmeter，可以点击连接直接跳转至官方网站下载 Jmeter官方下载连接       官网一般提供两个版本Source和 Binary，二者的区别是：  Source 是源代码版，需要自己编辑，适合二次再开发  Binaries是可执行版，直接下载解压就可以拿来用的，他已">
+<meta property="og:description" content="Python3+Selenium3自动化测试(六)浏览器多窗口切换说明有时候我们打开一个链接后，浏览器会新增一个窗口，但当前selenium只能针对当前的浏览器进行操作，不能对新打开的窗口进行操作，这时候我们就要切换到新的窗口，继续我们的测试 selenium中有提供一种切换窗口的方法，switch_to.window(目标窗口句柄) 案例 切换浏览器窗口为了测试多窗口切换，我们先把火狐浏览器设置">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/JDK_Download.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/Jmeter_Download.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/Menu.jpg">
-<meta property="og:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/Languange.jpg">
-<meta property="og:updated_time" content="2019-06-18T03:34:51.384Z">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/62.png">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/368.png">
+<meta property="og:updated_time" content="2019-09-06T09:51:04.045Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jmeter安装方法">
-<meta name="twitter:description" content="Jmeter安装方法 由于Jmeter有Java语言编写，所以需要JDK环境，点击下载JDKJDK官方下载连接     先下载Jmeter，可以点击连接直接跳转至官方网站下载 Jmeter官方下载连接       官网一般提供两个版本Source和 Binary，二者的区别是：  Source 是源代码版，需要自己编辑，适合二次再开发  Binaries是可执行版，直接下载解压就可以拿来用的，他已">
-<meta name="twitter:image" content="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/JDK_Download.jpg">
+<meta name="twitter:title" content="Python3+Selenium3自动化测试(六)浏览器多窗口切换">
+<meta name="twitter:description" content="Python3+Selenium3自动化测试(六)浏览器多窗口切换说明有时候我们打开一个链接后，浏览器会新增一个窗口，但当前selenium只能针对当前的浏览器进行操作，不能对新打开的窗口进行操作，这时候我们就要切换到新的窗口，继续我们的测试 selenium中有提供一种切换窗口的方法，switch_to.window(目标窗口句柄) 案例 切换浏览器窗口为了测试多窗口切换，我们先把火狐浏览器设置">
+<meta name="twitter:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/62.png">
 
 
 
@@ -125,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/31/Jmeter安装方法/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/10/Python3+Selenium3自动化测试(六)浏览器多窗口切换/">
 
 
 
 
 
-  <title>Jmeter安装方法 | 陈宏杰's 私人小巢</title>
+  <title>Python3+Selenium3自动化测试(六)浏览器多窗口切换 | 陈宏杰's 私人小巢</title>
   
 
 
@@ -268,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/Jmeter安装方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/10/Python3+Selenium3自动化测试(六)浏览器多窗口切换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ChenHJ">
@@ -285,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Jmeter安装方法</h1>
+          <h1 class="post-title" itemprop="name headline">Python3+Selenium3自动化测试(六)浏览器多窗口切换</h1>
         
 
         <div class="post-meta">
@@ -297,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-31T11:13:30+08:00">
-                2019-05-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-10T16:35:39+08:00">
+                2019-09-10
               </time>
             
 
@@ -320,8 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/2-性能测试/" itemprop="url" rel="index">
-                    <span itemprop="name">2.性能测试</span>
+                  <a href="/categories/1-自动化测试/" itemprop="url" rel="index">
+                    <span itemprop="name">1.自动化测试</span>
                   </a>
                 </span>
 
@@ -338,8 +336,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/05/31/Jmeter安装方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/31/Jmeter安装方法/" itemprop="commentCount"></span>
+                <a href="/2019/09/10/Python3+Selenium3自动化测试(六)浏览器多窗口切换/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/10/Python3+Selenium3自动化测试(六)浏览器多窗口切换/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -367,59 +365,11 @@
       
 
       
-        <h1 id="Jmeter安装方法"><a href="#Jmeter安装方法" class="headerlink" title="Jmeter安装方法"></a>Jmeter安装方法</h1><ol>
-<li><p>由于Jmeter有Java语言编写，所以需要JDK环境，点击下载JDK<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">JDK官方下载连接</a></p>
-<ul>
-<li><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/JDK_Download.jpg" alt="JDK_Download"></li>
-</ul>
-</li>
-<li><p>先下载Jmeter，可以点击连接直接跳转至官方网站下载 <a href="https://jmeter.apache.org/download_jmeter.cgi" title="Jmeter官方下载连接" target="_blank" rel="noopener">Jmeter官方下载连接</a></p>
-<ul>
-<li><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/Jmeter_Download.jpg" alt="Jmeter_Download"></li>
-</ul>
-</li>
-</ol>
-<ol start="3">
-<li><p>官网一般提供两个版本Source和 Binary，二者的区别是：</p>
-<p> Source 是源代码版，需要自己编辑，适合二次再开发</p>
-<p> Binaries是可执行版，直接下载解压就可以拿来用的，他已经给你编译好的版本</p>
-</li>
-</ol>
-<ol start="4">
-<li>Windows用户选择ZIP包，Linux或Mac用户选择Tar包，下载后解压可即可直接应用 </li>
-</ol>
-<h1 id="Jmeter目录说明"><a href="#Jmeter目录说明" class="headerlink" title="Jmeter目录说明"></a>Jmeter目录说明</h1><ol>
-<li>bin:核心可执行文件，包含配置<ul>
-<li>jmeter.bat: windows启动文件：</li>
-<li>jmeter: mac或者linux启动文件：</li>
-<li>jmeter-server：mac或者Liunx分布式压测使用的启动文件</li>
-<li>jmeter-server.bat：mac或者Liunx分布式压测使用的启动文件</li>
-<li>jmeter.properties: 核心配置文件</li>
-</ul>
-</li>
-<li>extras：插件拓展的包</li>
-<li><p>lib:核心的依赖包</p>
-<ul>
-<li>ext:核心包</li>
-<li><p>junit:单元测试包</p>
-</li>
-<li><p><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/Menu.jpg" alt></p>
-</li>
-</ul>
-</li>
-</ol>
-<h1 id="Jmeter语言版本中英文切换"><a href="#Jmeter语言版本中英文切换" class="headerlink" title="Jmeter语言版本中英文切换"></a>Jmeter语言版本中英文切换</h1><ol>
-<li><p>控制台修改</p>
-<p> menu -&gt; options -&gt; choose language</p>
-</li>
-<li><p>配置文件修改</p>
-<p> bin目录 -&gt; jmeter.properties</p>
-<p> 默认 #language=en，改为 language=zh_CN </p>
-<ul>
-<li><img src="http://chenhongjie.oss-cn-shenzhen.aliyuncs.com/jmeter/Jmeter%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/Languange.jpg" alt></li>
-</ul>
-</li>
-</ol>
+        <h1 id="Python3-Selenium3自动化测试-六-浏览器多窗口切换"><a href="#Python3-Selenium3自动化测试-六-浏览器多窗口切换" class="headerlink" title="Python3+Selenium3自动化测试(六)浏览器多窗口切换"></a>Python3+Selenium3自动化测试(六)浏览器多窗口切换</h1><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>有时候我们打开一个链接后，浏览器会新增一个窗口，但当前selenium只能针对当前的浏览器进行操作，不能对新打开的窗口进行操作，这时候我们就要切换到新的窗口，继续我们的测试</p>
+<p>selenium中有提供一种切换窗口的方法，switch_to.window(目标窗口句柄)</p>
+<h3 id="案例-切换浏览器窗口"><a href="#案例-切换浏览器窗口" class="headerlink" title="案例 切换浏览器窗口"></a>案例 切换浏览器窗口</h3><p>为了测试多窗口切换，我们先把火狐浏览器设置成点击任意链接都会在新窗口中打开如下：<br><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/62.png" alt></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line">driver = webdriver.Firefox()</span><br><span class="line">driver.implicitly_wait(<span class="number">10</span>)</span><br><span class="line">driver.get(<span class="string">'http://mail.163.com'</span>)</span><br><span class="line"><span class="comment">#获得当前窗口句柄</span></span><br><span class="line">old_window= driver.current_window_handle</span><br><span class="line">print(<span class="string">'当前窗口的句柄：'</span>,old_window)</span><br><span class="line">driver.find_element_by_id(<span class="string">'switchAccountLogin'</span>).click()</span><br><span class="line"><span class="comment">#点击海外账户，生产一个新的窗口</span></span><br><span class="line">driver.find_element_by_xpath(<span class="string">'/html/body/div[1]/div[2]/a[4]'</span>).click()</span><br><span class="line">sleep(<span class="number">3</span>)</span><br><span class="line"><span class="comment">#获得所有窗口的句柄</span></span><br><span class="line">all_window =driver.window_handles</span><br><span class="line">print(<span class="string">'所有的句柄:'</span>,all_window)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> all_window:</span><br><span class="line">    <span class="comment">#通过循环所有句柄，当为旧窗口时执行以下代码：</span></span><br><span class="line">    <span class="keyword">if</span> x == old_window:</span><br><span class="line">        iframe = driver.find_elements_by_tag_name(<span class="string">"iframe"</span>)[<span class="number">0</span>]</span><br><span class="line">        driver.switch_to.frame(iframe)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            driver.find_element_by_name(<span class="string">'email'</span>).send_keys(<span class="string">'1234@qq.com'</span>)</span><br><span class="line">            driver.find_element_by_name(<span class="string">'password'</span>).send_keys(<span class="string">'1234'</span>)</span><br><span class="line">            print(<span class="string">'旧窗口的句柄：'</span>,x)</span><br><span class="line">        <span class="keyword">except</span> BaseException <span class="keyword">as</span> err:</span><br><span class="line">            print(err)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 通过循环所有句柄，当为新窗口时执行以下代码：</span></span><br><span class="line">    <span class="keyword">if</span> x != old_window:</span><br><span class="line">        <span class="comment"># 切换至新的窗口</span></span><br><span class="line">        driver.switch_to.window(x)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            iframe = driver.find_elements_by_tag_name(<span class="string">"iframe"</span>)[<span class="number">0</span>]</span><br><span class="line">            driver.switch_to.frame(iframe)</span><br><span class="line">            driver.find_element_by_name(<span class="string">'email'</span>).send_keys(<span class="string">'9876@qq.com'</span>)</span><br><span class="line">            driver.find_element_by_name(<span class="string">'password'</span>).send_keys(<span class="string">'9876'</span>)</span><br><span class="line">            print(<span class="string">'新窗口的句柄：'</span>,x)</span><br><span class="line">        <span class="keyword">except</span> BaseException <span class="keyword">as</span> err:</span><br><span class="line">            print(err)</span><br></pre></td></tr></table></figure>
+<p>思路：通过案例可以查看切换窗口的思路为获取每个窗口的句柄，然后通过循环句柄来切换窗口。当满足句柄信息为指定的窗口时，再进行执行程序。<br>执行结果：<br><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/368.png" alt></p>
 
       
     </div>
@@ -437,7 +387,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Jmeter/" rel="tag"># Jmeter</a>
+            <a href="/tags/Python3-Selenium3/" rel="tag"># Python3+Selenium3</a>
           
         </div>
       
@@ -450,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/29/Jmeter接口之多层嵌套JSON及打印提取的参数/" rel="next" title="Jmeter接口之多层嵌套JSON及打印提取的参数">
-                <i class="fa fa-chevron-left"></i> Jmeter接口之多层嵌套JSON及打印提取的参数
+              <a href="/2019/09/09/Python3+Selenium3自动化测试(五)Frame窗口定位/" rel="next" title="Python3+Selenium3自动化测试(五)Frame窗口定位">
+                <i class="fa fa-chevron-left"></i> Python3+Selenium3自动化测试(五)Frame窗口定位
               </a>
             
           </div>
@@ -459,10 +409,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/31/Jmeter压测Mysql数据库-1/" rel="prev" title="Jmeter压测Mysql数据库(一)">
-                Jmeter压测Mysql数据库(一) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -599,7 +545,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter安装方法"><span class="nav-number">1.</span> <span class="nav-text">Jmeter安装方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter目录说明"><span class="nav-number">2.</span> <span class="nav-text">Jmeter目录说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jmeter语言版本中英文切换"><span class="nav-number">3.</span> <span class="nav-text">Jmeter语言版本中英文切换</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python3-Selenium3自动化测试-六-浏览器多窗口切换"><span class="nav-number">1.</span> <span class="nav-text">Python3+Selenium3自动化测试(六)浏览器多窗口切换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">1.0.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例-切换浏览器窗口"><span class="nav-number">1.0.2.</span> <span class="nav-text">案例 切换浏览器窗口</span></a></li></ol></li></ol></div>
             
 
           </div>
