@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python3+Selenium3,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Python3+Selenium3自动化(三)鼠标键盘事件鼠标模拟事件在案例 1 中使用了 click()模拟鼠标单击操作，但实际情况鼠标有多种操作，比如双击、点击鼠标右键、拖拽等操作，在 WebDriver 中鼠标的方法由 ActionChains 类提供，所以在代码的前面我们需要导入 ActionChains1from selenium.webdriver.common.action_chai">
+<meta name="keywords" content="Python3+Selenium3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python3+Selenium3自动化(三)">
+<meta property="og:url" content="http://yoursite.com/2019/09/06/Python3+Selenium3自动化(三)鼠标键盘事件/index.html">
+<meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
+<meta property="og:description" content="Python3+Selenium3自动化(三)鼠标键盘事件鼠标模拟事件在案例 1 中使用了 click()模拟鼠标单击操作，但实际情况鼠标有多种操作，比如双击、点击鼠标右键、拖拽等操作，在 WebDriver 中鼠标的方法由 ActionChains 类提供，所以在代码的前面我们需要导入 ActionChains1from selenium.webdriver.common.action_chai">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/112.png">
+<meta property="og:updated_time" content="2019-09-06T03:35:04.760Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python3+Selenium3自动化(三)">
+<meta name="twitter:description" content="Python3+Selenium3自动化(三)鼠标键盘事件鼠标模拟事件在案例 1 中使用了 click()模拟鼠标单击操作，但实际情况鼠标有多种操作，比如双击、点击鼠标右键、拖拽等操作，在 WebDriver 中鼠标的方法由 ActionChains 类提供，所以在代码的前面我们需要导入 ActionChains1from selenium.webdriver.common.action_chai">
+<meta name="twitter:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/112.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/06/Python3+Selenium3自动化(三)鼠标键盘事件/">
+
+
+
+
+
+  <title>Python3+Selenium3自动化(三) | 陈宏杰's 私人小巢</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">陈宏杰's 私人小巢</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ChenHJ's Zone</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/06/Python3+Selenium3自动化(三)鼠标键盘事件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChenHJ">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈宏杰's 私人小巢">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python3+Selenium3自动化(三)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-06T10:15:25+08:00">
+                2019-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/1-自动化测试/" itemprop="url" rel="index">
+                    <span itemprop="name">1.自动化测试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/06/Python3+Selenium3自动化(三)鼠标键盘事件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/06/Python3+Selenium3自动化(三)鼠标键盘事件/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Python3-Selenium3自动化-三-鼠标键盘事件"><a href="#Python3-Selenium3自动化-三-鼠标键盘事件" class="headerlink" title="Python3+Selenium3自动化(三)鼠标键盘事件"></a>Python3+Selenium3自动化(三)鼠标键盘事件</h1><h2 id="鼠标模拟事件"><a href="#鼠标模拟事件" class="headerlink" title="鼠标模拟事件"></a>鼠标模拟事件</h2><p>在案例 1 <a href></a>中使用了 click()模拟鼠标单击操作，但实际情况鼠标有多种操作，比<br>如双击、点击鼠标右键、拖拽等操作，在 WebDriver 中鼠标的方法由 ActionChains 类提供，<br>所以在代码的前面我们需要导入 ActionChains<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.webdriver.common.action_chains <span class="keyword">import</span> ActionChains</span><br></pre></td></tr></table></figure></p>
+<p>调用 ActionChains 的方法时不会立即执行，会将所有的操作按顺序存放在一个队列里，<br>当调用 perform()方法时，队列中的事件会依次执行<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ActionChains需要传入具体的浏览器实例driver</span></span><br><span class="line"><span class="comment"># click需要传入具体需要操作的元素ele</span></span><br><span class="line"><span class="comment"># perform()调用此方法则会一次执行该语句</span></span><br><span class="line">ActionChains(driver).click(ele).perform()</span><br></pre></td></tr></table></figure></p>
+<h3 id="常用的鼠标模拟事件"><a href="#常用的鼠标模拟事件" class="headerlink" title="常用的鼠标模拟事件"></a>常用的鼠标模拟事件</h3><pre><code>perform() 执行链中的所有动作
+
+click(on_element=None) 单击鼠标左键
+
+context_click(on_element=None) 点击鼠标右键
+
+double_click(on_element=None) 双击鼠标左键
+
+move_to_element(to_element) 鼠标移动到某个元素
+
+ele.send_keys(keys_to_send) 发送某个词到当前焦点的元素
+</code></pre><h3 id="非常用的鼠标模拟时间"><a href="#非常用的鼠标模拟时间" class="headerlink" title="非常用的鼠标模拟时间"></a>非常用的鼠标模拟时间</h3><pre><code>click_and_hold(on_element=None) 点击鼠标左键，不松开
+
+release(on_element=None) 在某个元素位置松开鼠标左键
+
+drag_and_drop(source, target) 拖拽到某个元素然后松开
+
+drag_and_drop_by_offset(source, xoffset, yoffset) 拖拽到某个坐标然后松开
+
+move_by_offset(xoffset, yoffset) 鼠标从当前位置移动到某个坐标
+
+move_to_element_with_offset(to_element, xoffset, yoffset) 移动到距某个元素（左上角坐标）多少距离的位置
+
+send_keys_to_element(element, keys_to_send) 发送某个键到指定元素
+</code></pre><h3 id="案例2-模拟鼠标事件"><a href="#案例2-模拟鼠标事件" class="headerlink" title="案例2 模拟鼠标事件"></a>案例2 模拟鼠标事件</h3><p>需求：点击百度首页的设置按钮，并把鼠标悬停在弹出的登录图片上</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.action_chains <span class="keyword">import</span> ActionChains</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="comment">#打开百度首页</span></span><br><span class="line">driver = webdriver.Firefox()</span><br><span class="line">url = <span class="string">'http://www.baidu.com'</span></span><br><span class="line">driver.get(url)</span><br><span class="line"><span class="comment">#获取设置元素Xpath</span></span><br><span class="line">setting_ele = driver.find_element_by_xpath(<span class="string">'/html/body/div[1]/div[1]/div/div[3]/a[7]'</span>)</span><br><span class="line"><span class="comment">#准备点击设置按钮操作链</span></span><br><span class="line">action_setting=ActionChains(driver).click(setting_ele)</span><br><span class="line"><span class="comment">#通过perform()触发操作链</span></span><br><span class="line">action_setting.perform()</span><br><span class="line"><span class="comment">#定位到需要悬停的登录图片位置</span></span><br><span class="line">login_img_ele =driver.find_element_by_xpath(<span class="string">'/html/body/div[4]/div[2]/div[2]/div/div/div/div/div/div[3]/div/div/div[1]/img'</span>)</span><br><span class="line"><span class="comment">#把鼠标移动(悬停)到图片上</span></span><br><span class="line">ActionChains(driver).move_to_element(login_img_ele).perform()</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/112.png" style="zoom:67%;"></p>
+<h2 id="模拟键盘事件"><a href="#模拟键盘事件" class="headerlink" title="模拟键盘事件"></a>模拟键盘事件</h2><p>在 WebDriver 中鼠标的方法由 Keys 类提供，<br>所以在代码的前面我们需要导入 Keys<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.webdriver.common.keys <span class="keyword">import</span> Keys</span><br></pre></td></tr></table></figure></p>
+<h3 id="常用的键盘时间"><a href="#常用的键盘时间" class="headerlink" title="常用的键盘时间"></a>常用的键盘时间</h3><pre><code>send_keys(Keys.BACK_SPACE) 删除键（BackSpace）
+send_keys(Keys.SPACE) 空格键(Space)
+send_keys(Keys.TAB) 制表键(Tab)
+send_keys(Keys.ESCAPE) 回退键（Esc）
+send_keys(Keys.ENTER) 回车键（Enter）《Selenium2 Python 自动化测试实战》样张
+81
+send_keys(Keys.CONTROL,&apos;a&apos;) 全选（Ctrl+A）
+send_keys(Keys.CONTROL,&apos;c&apos;) 复制（Ctrl+C）
+send_keys(Keys.CONTROL,&apos;x&apos;) 剪切（Ctrl+X）
+send_keys(Keys.CONTROL,&apos;v&apos;) 粘贴（Ctrl+V）
+send_keys(Keys.F1) 键盘 F1
+</code></pre><h3 id="案例3-模拟键盘操作"><a href="#案例3-模拟键盘操作" class="headerlink" title="案例3 模拟键盘操作"></a>案例3 模拟键盘操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.keys <span class="keyword">import</span> Keys</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line">driver = webdriver.Firefox()</span><br><span class="line">baiduUrl = <span class="string">'http://www.baidu.com'</span></span><br><span class="line">driver.get(baiduUrl)</span><br><span class="line">print(driver.title) <span class="comment">#打印网页标题</span></span><br><span class="line">print(driver.current_url) <span class="comment">#打印当前网址</span></span><br><span class="line"></span><br><span class="line">elementId = <span class="string">'kw'</span>  <span class="comment">#输入框元素的ID属性值</span></span><br><span class="line">driver.find_element_by_id(elementId).send_keys(<span class="string">'python1'</span>) <span class="comment">#在搜索框内输入搜索内容</span></span><br><span class="line">sleep(<span class="number">2</span>)  <span class="comment">#为了查看效果，引入等待时间，后续会讲解到用法</span></span><br><span class="line"><span class="comment"># 删除多余的字符'1'</span></span><br><span class="line">driver.find_element_by_id(elementId).send_keys(Keys.BACK_SPACE)</span><br><span class="line"><span class="comment">###全选'python'，删除，输入测试教程，按回车进行搜索</span></span><br><span class="line">sleep(<span class="number">2</span>)</span><br><span class="line">driver.find_element_by_id(elementId).send_keys(Keys.CONTROL,<span class="string">'a'</span>)  <span class="comment">#全选</span></span><br><span class="line">sleep(<span class="number">2</span>)</span><br><span class="line">driver.find_element_by_id(elementId).send_keys(Keys.BACK_SPACE)   <span class="comment">#删除</span></span><br><span class="line">sleep(<span class="number">2</span>)</span><br><span class="line">driver.find_element_by_id(elementId).send_keys(<span class="string">'测试教程'</span>)         <span class="comment">#输入测试教程</span></span><br><span class="line">sleep(<span class="number">2</span>)</span><br><span class="line">driver.find_element_by_id(elementId).send_keys(Keys.ENTER)        <span class="comment">#按回车进行搜索</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python3-Selenium3/" rel="tag"># Python3+Selenium3</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/06/Python3+Selenium3自动化测试(二)元素定位及操作/" rel="next" title="Python3+Selenium3自动化测试(二)元素定位及操作">
+                <i class="fa fa-chevron-left"></i> Python3+Selenium3自动化测试(二)元素定位及操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/touxiang.jpg" alt="ChenHJ">
+            
+              <p class="site-author-name" itemprop="name">ChenHJ</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python3-Selenium3自动化-三-鼠标键盘事件"><span class="nav-number">1.</span> <span class="nav-text">Python3+Selenium3自动化(三)鼠标键盘事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#鼠标模拟事件"><span class="nav-number">1.1.</span> <span class="nav-text">鼠标模拟事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的鼠标模拟事件"><span class="nav-number">1.1.1.</span> <span class="nav-text">常用的鼠标模拟事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非常用的鼠标模拟时间"><span class="nav-number">1.1.2.</span> <span class="nav-text">非常用的鼠标模拟时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例2-模拟鼠标事件"><span class="nav-number">1.1.3.</span> <span class="nav-text">案例2 模拟鼠标事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模拟键盘事件"><span class="nav-number">1.2.</span> <span class="nav-text">模拟键盘事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的键盘时间"><span class="nav-number">1.2.1.</span> <span class="nav-text">常用的键盘时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例3-模拟键盘操作"><span class="nav-number">1.2.2.</span> <span class="nav-text">案例3 模拟键盘操作</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ChenHJ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'MQnEoiD9Ye2HzPBJ5poOaFsv-gzGzoHsz',
+        appKey: 'iyt2kmR704XJfOUecxvhprii',
+        placeholder: '人留不下，留点回忆行不行~O(∩_∩)O',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
