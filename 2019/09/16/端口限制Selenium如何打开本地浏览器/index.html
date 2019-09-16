@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Python3+Selenium3,">
 
 
 
@@ -79,14 +79,20 @@
 
 
 
+<meta name="description" content="有时候我们用Selenium默认的浏览器打开测试环境的网址时，若我们的测试地址后有跟着一些奇奇怪怪的端口号时，浏览器会自动判定该网址存在风险，不让我们访问。这个时候应该怎么办呢？ 其实有两种办法可以解决：一是让麻烦运维把端口号去掉，或者改成常见的端口号。改完后我们再来访问，如果不能访问，再让运维继续改，这种方法是不是很麻烦QAQ二是让Selenium访问我们的本地浏览器，一般情况下我们本地浏览器已">
+<meta name="keywords" content="Python3+Selenium3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="端口限制Selenium如何打开本地浏览器">
+<meta property="og:title" content="端口限制，Selenium默认浏览器无法打开网站怎么办？">
 <meta property="og:url" content="http://yoursite.com/2019/09/16/端口限制Selenium如何打开本地浏览器/index.html">
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
+<meta property="og:description" content="有时候我们用Selenium默认的浏览器打开测试环境的网址时，若我们的测试地址后有跟着一些奇奇怪怪的端口号时，浏览器会自动判定该网址存在风险，不让我们访问。这个时候应该怎么办呢？ 其实有两种办法可以解决：一是让麻烦运维把端口号去掉，或者改成常见的端口号。改完后我们再来访问，如果不能访问，再让运维继续改，这种方法是不是很麻烦QAQ二是让Selenium访问我们的本地浏览器，一般情况下我们本地浏览器已">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-16T09:28:57.865Z">
+<meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/异常端口.png">
+<meta property="og:updated_time" content="2019-09-16T11:04:45.846Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="端口限制Selenium如何打开本地浏览器">
+<meta name="twitter:title" content="端口限制，Selenium默认浏览器无法打开网站怎么办？">
+<meta name="twitter:description" content="有时候我们用Selenium默认的浏览器打开测试环境的网址时，若我们的测试地址后有跟着一些奇奇怪怪的端口号时，浏览器会自动判定该网址存在风险，不让我们访问。这个时候应该怎么办呢？ 其实有两种办法可以解决：一是让麻烦运维把端口号去掉，或者改成常见的端口号。改完后我们再来访问，如果不能访问，再让运维继续改，这种方法是不是很麻烦QAQ二是让Selenium访问我们的本地浏览器，一般情况下我们本地浏览器已">
+<meta name="twitter:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/异常端口.png">
 
 
 
@@ -122,7 +128,7 @@
 
 
 
-  <title>端口限制Selenium如何打开本地浏览器 | 陈宏杰's 私人小巢</title>
+  <title>端口限制，Selenium默认浏览器无法打开网站怎么办？ | 陈宏杰's 私人小巢</title>
   
 
 
@@ -276,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">端口限制Selenium如何打开本地浏览器</h1>
+          <h1 class="post-title" itemprop="name headline">端口限制，Selenium默认浏览器无法打开网站怎么办？</h1>
         
 
         <div class="post-meta">
@@ -298,6 +304,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/1-自动化测试/" itemprop="url" rel="index">
+                    <span itemprop="name">1.自动化测试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -336,7 +364,15 @@
       
 
       
-        
+        <p>有时候我们用Selenium默认的浏览器打开测试环境的网址时，若我们的测试地址后有跟着一些奇奇怪怪的端口号时，浏览器会自动判定该网址存在风险，不让我们访问。这个时候应该怎么办呢？<br><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/异常端口.png" style="zoom:50%;"></p>
+<p>其实有两种办法可以解决：<br>一是让麻烦运维把端口号去掉，或者改成常见的端口号。改完后我们再来访问，如果不能访问，再让运维继续改，这种方法是不是很麻烦QAQ<br>二是让Selenium访问我们的本地浏览器，一般情况下我们本地浏览器已经设置过该端口为信任端口，只要能调取本地浏览器来访问即大功告成</p>
+<p>以火狐浏览器为例，废话不说直接上代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#profileDir为获取本地火狐浏览器配置文件</span></span><br><span class="line">profileDir =<span class="string">r"C:\Users\Administrator.USER-20181015IP\AppData\Roaming\Mozilla\Firefox\Profiles\okfyw9h2.default"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#读取本地配置，把本地配置文件传入FirefoxProfile中，为启动Firefox配置</span></span><br><span class="line">profile = webdriver.FirefoxProfile(profileDir)</span><br><span class="line"></span><br><span class="line"><span class="comment">#把本地配置文件一起传入实例化对象driver</span></span><br><span class="line">driver = webdriver.Firefox(profile)</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><code>okfyw9h2.default</code>火狐浏览器配置文件以<code>.default</code>结尾，文件名每个人都不一致，可以直接在C盘搜索以<code>.default</code>结尾的文件</li>
+<li>查找到配置文件后，把配置文件传入webdriver.FirefoxProfille中</li>
+<li>weibdriver.Firefox读取配置文件</li>
+</ol>
+
       
     </div>
     
@@ -350,6 +386,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python3-Selenium3/" rel="tag"># Python3+Selenium3</a>
+          
+        </div>
       
 
       
