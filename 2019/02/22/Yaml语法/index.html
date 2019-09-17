@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
 <meta property="og:description" content="Yaml基本语法简介YAML（/ˈjæməl/，尾音类似camel骆驼）是一个可读性高，用来表达数据序列的格式。 YAML是”YAML Ain’t a Markup Language”（YAML不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言），但为了强调这种语言以数据做为中心，而不是以标记语言为">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-17T02:44:42.940Z">
+<meta property="og:updated_time" content="2019-09-17T02:53:31.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yaml语法">
 <meta name="twitter:description" content="Yaml基本语法简介YAML（/ˈjæməl/，尾音类似camel骆驼）是一个可读性高，用来表达数据序列的格式。 YAML是”YAML Ain’t a Markup Language”（YAML不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言），但为了强调这种语言以数据做为中心，而不是以标记语言为">
@@ -384,12 +384,8 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yaml_obj =&#123;<span class="string">'name'</span>: <span class="string">'测试'</span>,<span class="string">'age'</span>: <span class="number">10</span>,<span class="string">'job'</span>: <span class="string">'Tester'</span>&#125;</span><br><span class="line">z = yaml.dump(yaml_obj,default_flow_style=<span class="keyword">False</span>)</span><br><span class="line">print(z)</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
 <p>结果：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">age: <span class="number">10</span></span><br><span class="line">job: Tester</span><br><span class="line">name: <span class="string">"测试"</span></span><br></pre></td></tr></table></figure></p>
 <hr>
-<blockquote>
 <p>load()：将yaml格式的字符串转换成Python对象</p>
-</blockquote>
-<blockquote>
 <p>dump()：将Python对象转换成yaml格式文档</p>
-</blockquote>
 <h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="1-基本规则"><a href="#1-基本规则" class="headerlink" title="1.基本规则"></a>1.基本规则</h3><blockquote>
 <ul>
 <li>大小写敏感</li>
@@ -410,9 +406,7 @@
 <p><code>{&#39;str&#39;: &#39;Hello World&#39;, &#39;str1&#39;: &#39;Hello\\nWorld&#39;, &#39;str2&#39;: &#39;Hello\nWorld&#39;, &#39;int&#39;: 120, &#39;float&#39;: 3.1415, &#39;boolean&#39;: True, &#39;None&#39;: None, &#39;time&#39;: datetime.datetime(2019, 2, 22, 3, 43, 30, 200000), &#39;date&#39;: datetime.date(2019, 2, 22)}</code></p>
 <h3 id="6-引用"><a href="#6-引用" class="headerlink" title="6.引用"></a>6.引用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &amp; 被引用 *引用</span></span><br><span class="line">name: &amp;name 测试</span><br><span class="line">tester: *name</span><br></pre></td></tr></table></figure>
 <p>结果：</p>
-<blockquote>
-<p>{‘name’: ‘测试’, ‘tester’: ‘测试’}</p>
-</blockquote>
+<p><code>{&#39;name&#39;: &#39;测试&#39;, &#39;tester&#39;: &#39;测试&#39;}</code></p>
 <h3 id="7-强制转换"><a href="#7-强制转换" class="headerlink" title="7.强制转换"></a>7.强制转换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># yaml是可以进行强制转换的，用 !! 实现</span></span><br><span class="line">str: !!str <span class="number">3.14</span></span><br><span class="line">int: !!int <span class="string">"123"</span></span><br></pre></td></tr></table></figure>
 <p>结果：</p>
 <p><code>{&#39;str&#39;: &#39;3.14&#39;, &#39;int&#39;: 123}</code></p>
