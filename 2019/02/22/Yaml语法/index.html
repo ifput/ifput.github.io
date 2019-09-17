@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
 <meta property="og:description" content="Yaml基本语法简介YAML（/ˈjæməl/，尾音类似camel骆驼）是一个可读性高，用来表达数据序列的格式。 YAML是”YAML Ain’t a Markup Language”（YAML不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言），但为了强调这种语言以数据做为中心，而不是以标记语言为">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-05T01:04:02.033Z">
+<meta property="og:updated_time" content="2019-09-17T02:44:42.940Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yaml语法">
 <meta name="twitter:description" content="Yaml基本语法简介YAML（/ˈjæməl/，尾音类似camel骆驼）是一个可读性高，用来表达数据序列的格式。 YAML是”YAML Ain’t a Markup Language”（YAML不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言），但为了强调这种语言以数据做为中心，而不是以标记语言为">
@@ -367,50 +367,22 @@
 <p>yaml是一种比xml和json更轻的文件格式，也更简单更强大，它可以通过缩进来表示结构，在Python库 – PyYaml。可以用之作为你自动化测试框架的配置文件或者用例文件。</p>
 <h2 id="PyYML安装"><a href="#PyYML安装" class="headerlink" title="PyYML安装"></a>PyYML安装</h2><ol>
 <li><p>安装</p>
-<blockquote>
-<p>pip install PyYAML</p>
-</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install PyYAML</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用</p>
 </li>
 </ol>
 <p>注意”:”后面有空格</p>
 <ul>
-<li>load()</li>
-</ul>
-<blockquote>
-<pre><code>import yaml
-
-yaml_str = &quot;&quot;&quot;
-name: 测试
-age: 10
-job: Tester
-&quot;&quot;&quot;
-
-y = yaml.load(yaml_str)
-print y
-</code></pre></blockquote>
-<p>结果：</p>
-<blockquote>
-<p>{‘name’: ‘测试’, ‘age’: 10, ‘job’: ‘Tester’}</p>
-</blockquote>
-<ul>
-<li>dump()<blockquote>
-<pre><code>yaml_obj ={&apos;name&apos;: &apos;测试&apos;,
-             &apos;age&apos;: 10,
-             &apos;job&apos;: &apos;Tester&apos;
-             }
-z = yaml.dump(yaml_obj,default_flow_style=False)
-print(z)
-</code></pre></blockquote>
+<li>load()<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line">yaml_str = <span class="string">"name: 测试,age: 10,job: Tester"</span></span><br><span class="line">y = yaml.load(yaml_str)</span><br><span class="line">print(y)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>结果：</p>
-<blockquote>
-<p> age: 10 </p>
-<p> job: Tester</p>
-<p> name: “测试”</p>
-</blockquote>
+<p>结果：<br><code>{&#39;name&#39;: &#39;测试&#39;, &#39;age&#39;: 10, &#39;job&#39;: &#39;Tester&#39;}</code></p>
+<ul>
+<li>dump()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yaml_obj =&#123;<span class="string">'name'</span>: <span class="string">'测试'</span>,<span class="string">'age'</span>: <span class="number">10</span>,<span class="string">'job'</span>: <span class="string">'Tester'</span>&#125;</span><br><span class="line">z = yaml.dump(yaml_obj,default_flow_style=<span class="keyword">False</span>)</span><br><span class="line">print(z)</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<p>结果：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">age: <span class="number">10</span></span><br><span class="line">job: Tester</span><br><span class="line">name: <span class="string">"测试"</span></span><br></pre></td></tr></table></figure></p>
 <hr>
 <blockquote>
 <p>load()：将yaml格式的字符串转换成Python对象</p>
@@ -427,84 +399,34 @@ print(z)
 <li><h1 id="表示注释，从它开始到行尾都被忽略"><a href="#表示注释，从它开始到行尾都被忽略" class="headerlink" title="表示注释，从它开始到行尾都被忽略"></a>表示注释，从它开始到行尾都被忽略</h1></li>
 </ul>
 </blockquote>
-<h3 id="2-yaml转字典"><a href="#2-yaml转字典" class="headerlink" title="2.yaml转字典"></a>2.yaml转字典</h3><pre><code>#下面格式读到Python里会是个dict
-name: 测试
-age: 10
-job: Tester
-</code></pre><p>结果：</p>
-<blockquote>
-<p>{‘name’: ‘测试’, ‘age’: 10, ‘job’: ‘Tester’}</p>
-</blockquote>
-<h3 id="3-yaml转列表"><a href="#3-yaml转列表" class="headerlink" title="3.yaml转列表"></a>3.yaml转列表</h3><pre><code># 下面格式读到Python里会是个list
-- 测试
-- 10
-- Tester
-</code></pre><p>结果：</p>
-<blockquote>
-<p>[‘测试’, 10, ‘Tester’]</p>
-</blockquote>
-<h3 id="4-复合结构"><a href="#4-复合结构" class="headerlink" title="4.复合结构"></a>4.复合结构</h3><pre><code>#下面格式读到Python里是个list里包含dict
-- name: 测试
-  age: 10
-  job: Tester
-- name: Kobe
-  age: 30
-</code></pre><p>结果：</p>
-<blockquote>
-<p>[{‘name’: ‘测试’, ‘age’: 10, ‘job’: ‘Tester’}, {‘name’: ‘Kobe’, ‘age’: 30}]</p>
-</blockquote>
-<h3 id="5-基本类型"><a href="#5-基本类型" class="headerlink" title="5.基本类型"></a>5.基本类型</h3><pre><code>#这个例子输出一个字典，其中value包括所有的基本类型
-str: &quot;Hello World&quot;
-#单引号输出最后会完整输出，不会被转移
-str1: &apos;Hello\nWorld&apos;
-#双引号输出最后会被转义
-str2: &quot;Hello\nWorld&quot;
-int: 120
-float: 3.1415
-boolean: true
-None: null
-time: 2019-02-22t11:43:30.20+08:00
-date: 2019-02-22
-</code></pre><p>结果：</p>
-<blockquote>
-<p>{‘str’: ‘Hello World’, ‘str1’: ‘Hello\nWorld’, ‘str2’: ‘Hello\nWorld’, ‘int’: 120, ‘float’: 3.1415, ‘boolean’: True, ‘None’: None, ‘time’: datetime.datetime(2019, 2, 22, 3, 43, 30, 200000), ‘date’: datetime.date(2019, 2, 22)}</p>
-</blockquote>
-<h3 id="6-引用"><a href="#6-引用" class="headerlink" title="6.引用"></a>6.引用</h3><pre><code># &amp; 被引用 *引用
-name: &amp;name 测试
-tester: *name
-</code></pre><p>结果：</p>
+<h3 id="2-yaml转字典"><a href="#2-yaml转字典" class="headerlink" title="2.yaml转字典"></a>2.yaml转字典</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#下面格式读到Python里会是个dict</span></span><br><span class="line">name: 测试</span><br><span class="line">age: <span class="number">10</span></span><br><span class="line">job: Tester</span><br></pre></td></tr></table></figure>
+<p>结果：<br><code>{&#39;name&#39;: &#39;测试&#39;, &#39;age&#39;: 10, &#39;job&#39;: &#39;Tester&#39;}</code></p>
+<h3 id="3-yaml转列表"><a href="#3-yaml转列表" class="headerlink" title="3.yaml转列表"></a>3.yaml转列表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下面格式读到Python里会是个list</span></span><br><span class="line">- 测试</span><br><span class="line">- <span class="number">10</span></span><br><span class="line">- Tester</span><br></pre></td></tr></table></figure>
+<p>结果：<br><code>[&#39;测试&#39;, 10, &#39;Tester&#39;]</code></p>
+<h3 id="4-复合结构"><a href="#4-复合结构" class="headerlink" title="4.复合结构"></a>4.复合结构</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#下面格式读到Python里是个list里包含dict</span></span><br><span class="line">- name: 测试</span><br><span class="line">  age: <span class="number">10</span></span><br><span class="line">  job: Tester</span><br><span class="line">- name: Kobe</span><br><span class="line">  age: <span class="number">30</span></span><br></pre></td></tr></table></figure>
+<p>结果：<br><code>[{&#39;name&#39;: &#39;测试&#39;, &#39;age&#39;: 10, &#39;job&#39;: &#39;Tester&#39;}, {&#39;name&#39;: &#39;Kobe&#39;, &#39;age&#39;: 30}]</code></p>
+<h3 id="5-基本类型"><a href="#5-基本类型" class="headerlink" title="5.基本类型"></a>5.基本类型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#这个例子输出一个字典，其中value包括所有的基本类型</span></span><br><span class="line">str: <span class="string">"Hello World"</span></span><br><span class="line"><span class="comment">#单引号输出最后会完整输出，不会被转义</span></span><br><span class="line">str1: <span class="string">'Hello\nWorld'</span></span><br><span class="line"><span class="comment">#双引号输出最后会被转义</span></span><br><span class="line">str2: <span class="string">"Hello\nWorld"</span></span><br><span class="line">int: <span class="number">120</span></span><br><span class="line">float: <span class="number">3.1415</span></span><br><span class="line">boolean: true</span><br><span class="line"><span class="keyword">None</span>: null</span><br><span class="line">time: <span class="number">2019</span><span class="number">-02</span><span class="number">-22</span>t11:<span class="number">43</span>:<span class="number">30.20</span>+<span class="number">08</span>:<span class="number">00</span></span><br><span class="line">date: <span class="number">2019</span><span class="number">-02</span><span class="number">-22</span></span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><code>{&#39;str&#39;: &#39;Hello World&#39;, &#39;str1&#39;: &#39;Hello\\nWorld&#39;, &#39;str2&#39;: &#39;Hello\nWorld&#39;, &#39;int&#39;: 120, &#39;float&#39;: 3.1415, &#39;boolean&#39;: True, &#39;None&#39;: None, &#39;time&#39;: datetime.datetime(2019, 2, 22, 3, 43, 30, 200000), &#39;date&#39;: datetime.date(2019, 2, 22)}</code></p>
+<h3 id="6-引用"><a href="#6-引用" class="headerlink" title="6.引用"></a>6.引用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &amp; 被引用 *引用</span></span><br><span class="line">name: &amp;name 测试</span><br><span class="line">tester: *name</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
 <blockquote>
 <p>{‘name’: ‘测试’, ‘tester’: ‘测试’}</p>
 </blockquote>
-<h3 id="7-强制转换"><a href="#7-强制转换" class="headerlink" title="7.强制转换"></a>7.强制转换</h3><pre><code># yaml是可以进行强制转换的，用 !! 实现
-str: !!str 3.14
-int: !!int &quot;123&quot;
-</code></pre><p>结果：</p>
-<blockquote>
-<p>{‘str’: ‘3.14’, ‘int’: 123}</p>
-</blockquote>
-<h3 id="8-分段"><a href="#8-分段" class="headerlink" title="8. 分段"></a>8. 分段</h3><pre><code>#在同一个yaml文件中，可以用 --- 来分段，这样可以将多个文档写在一个文件中
----
-name: James
-age: 20
----
-name: Lily
-age: 19
-</code></pre><hr>
-<pre><code># -*- coding: utf-8 -*-
-import yaml
-
-ys = yaml.load_all(file(&apos;test.yaml&apos;, &apos;r&apos;))
-for y in ys:
-print y
-</code></pre><p>结果：</p>
+<h3 id="7-强制转换"><a href="#7-强制转换" class="headerlink" title="7.强制转换"></a>7.强制转换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># yaml是可以进行强制转换的，用 !! 实现</span></span><br><span class="line">str: !!str <span class="number">3.14</span></span><br><span class="line">int: !!int <span class="string">"123"</span></span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><code>{&#39;str&#39;: &#39;3.14&#39;, &#39;int&#39;: 123}</code></p>
+<h3 id="8-分段"><a href="#8-分段" class="headerlink" title="8. 分段"></a>8. 分段</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#在同一个yaml文件中，可以用 --- 来分段，这样可以将多个文档写在一个文件中</span><br><span class="line">---</span><br><span class="line">name: James</span><br><span class="line">age: 20</span><br><span class="line">---</span><br><span class="line">name: Lily</span><br><span class="line">age: 19</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line">ys = yaml.load_all(file(<span class="string">'test.yaml'</span>, <span class="string">'r'</span>))</span><br><span class="line"><span class="keyword">for</span> y <span class="keyword">in</span> ys:</span><br><span class="line"><span class="keyword">print</span> y</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
 <blockquote>
 <p>{‘age’: 20, ‘name’: ‘James’}</p>
 <p>{‘age’: 19, ‘name’: ‘Lily’}</p>
 </blockquote>
 <h2 id="推荐文章"><a href="#推荐文章" class="headerlink" title="推荐文章"></a>推荐文章</h2><p><a href="https://blog.csdn.net/huilan_same/article/details/52625230" target="_blank" rel="noopener">自动化项目配置或用例文件格式推荐–yaml</a></p>
 <p><a href="https://www.jianshu.com/p/d0b65c3b214e" target="_blank" rel="noopener">掌握下python解析YAML格式也是需要的</a></p>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
     
