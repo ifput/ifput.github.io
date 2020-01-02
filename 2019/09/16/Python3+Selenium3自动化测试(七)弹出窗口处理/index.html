@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="Python3+Selenium3自动化测试(七)弹出窗口处理需求有时候我们删除配置或者保存配置时，会弹出是否确定删除的提示框，类似：  对于这种输入框我们用switch_to.alert方法把目标切换至alert上，然后用accept()表示确定，dismiss()表示取消 示例1234567891011121314151617from selenium import webdriverfrom">
+<meta name="description" content="Python3+Selenium3自动化测试(七)弹出窗口处理需求有时候我们删除配置或者保存配置时，会弹出是否确定删除的提示框，类似：  对于这种输入框我们用switch_to.alert方法把目标切换至alert上，然后用accept()表示确定，dismiss()表示取消 示例示例为打开百度，点击设置按钮，打开搜索项保存设置，在保存设置后，会有一个弹出的提示框，点击确定把提示框关闭123456">
 <meta name="keywords" content="Python3+Selenium3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python3+Selenium3自动化测试(七)弹出窗口处理">
 <meta property="og:url" content="http://yoursite.com/2019/09/16/Python3+Selenium3自动化测试(七)弹出窗口处理/index.html">
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
-<meta property="og:description" content="Python3+Selenium3自动化测试(七)弹出窗口处理需求有时候我们删除配置或者保存配置时，会弹出是否确定删除的提示框，类似：  对于这种输入框我们用switch_to.alert方法把目标切换至alert上，然后用accept()表示确定，dismiss()表示取消 示例1234567891011121314151617from selenium import webdriverfrom">
+<meta property="og:description" content="Python3+Selenium3自动化测试(七)弹出窗口处理需求有时候我们删除配置或者保存配置时，会弹出是否确定删除的提示框，类似：  对于这种输入框我们用switch_to.alert方法把目标切换至alert上，然后用accept()表示确定，dismiss()表示取消 示例示例为打开百度，点击设置按钮，打开搜索项保存设置，在保存设置后，会有一个弹出的提示框，点击确定把提示框关闭123456">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/是否删除.png">
 <meta property="og:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/提示框.png">
-<meta property="og:updated_time" content="2019-09-16T12:43:58.979Z">
+<meta property="og:updated_time" content="2019-12-27T07:58:41.517Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python3+Selenium3自动化测试(七)弹出窗口处理">
-<meta name="twitter:description" content="Python3+Selenium3自动化测试(七)弹出窗口处理需求有时候我们删除配置或者保存配置时，会弹出是否确定删除的提示框，类似：  对于这种输入框我们用switch_to.alert方法把目标切换至alert上，然后用accept()表示确定，dismiss()表示取消 示例1234567891011121314151617from selenium import webdriverfrom">
+<meta name="twitter:description" content="Python3+Selenium3自动化测试(七)弹出窗口处理需求有时候我们删除配置或者保存配置时，会弹出是否确定删除的提示框，类似：  对于这种输入框我们用switch_to.alert方法把目标切换至alert上，然后用accept()表示确定，dismiss()表示取消 示例示例为打开百度，点击设置按钮，打开搜索项保存设置，在保存设置后，会有一个弹出的提示框，点击确定把提示框关闭123456">
 <meta name="twitter:image" content="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/是否删除.png">
 
 
@@ -368,7 +368,7 @@
         <h1 id="Python3-Selenium3自动化测试-七-弹出窗口处理"><a href="#Python3-Selenium3自动化测试-七-弹出窗口处理" class="headerlink" title="Python3+Selenium3自动化测试(七)弹出窗口处理"></a>Python3+Selenium3自动化测试(七)弹出窗口处理</h1><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>有时候我们删除配置或者保存配置时，会弹出是否确定删除的提示框，类似：</p>
 <p><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/是否删除.png" style="zoom: 75%;"><img src="https://chenhongjie.oss-cn-shenzhen.aliyuncs.com/img/提示框.png" style="zoom:75%;"></p>
 <p>对于这种输入框我们用<code>switch_to.alert</code>方法把目标切换至alert上，然后用<code>accept()</code>表示确定，<code>dismiss()</code>表示取消</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.action_chains <span class="keyword">import</span> ActionChains</span><br><span class="line">driver = webdriver.Firefox()</span><br><span class="line">driver.implicitly_wait(<span class="number">10</span>)</span><br><span class="line">driver.get(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line"><span class="comment">#鼠标悬停相“设置”链接</span></span><br><span class="line">link= driver.find_element_by_link_text(<span class="string">u'设置'</span>)</span><br><span class="line">ActionChains(driver).move_to_element(link).perform()</span><br><span class="line"><span class="comment">#打开搜索设置</span></span><br><span class="line">driver.find_element_by_xpath(<span class="string">'/html/body/div[1]/div[6]/a[1]'</span>).click()</span><br><span class="line"><span class="comment">#点击"保存设置"</span></span><br><span class="line">driver.find_element_by_css_selector(<span class="string">'.prefpanelgo'</span>).click()</span><br><span class="line"><span class="comment">#接收弹窗，为了方便查看清楚，这里分成了三步，实际可以直接写成:driver.switch_to.alert.accept()</span></span><br><span class="line">submit=driver.switch_to.alert</span><br><span class="line">sleep(<span class="number">3</span>)</span><br><span class="line">submit.accept()</span><br></pre></td></tr></table></figure>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>示例为打开百度，点击设置按钮，打开搜索项保存设置，在保存设置后，会有一个弹出的提示框，点击确定把提示框关闭<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.action_chains <span class="keyword">import</span> ActionChains</span><br><span class="line">driver = webdriver.Firefox()</span><br><span class="line">driver.implicitly_wait(<span class="number">10</span>)</span><br><span class="line">driver.get(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line"><span class="comment">#鼠标悬停相“设置”链接</span></span><br><span class="line">link= driver.find_element_by_link_text(<span class="string">u'设置'</span>)</span><br><span class="line">ActionChains(driver).move_to_element(link).perform()</span><br><span class="line"><span class="comment">#打开搜索设置</span></span><br><span class="line">driver.find_element_by_xpath(<span class="string">'/html/body/div[1]/div[6]/a[1]'</span>).click()</span><br><span class="line"><span class="comment">#点击"保存设置"</span></span><br><span class="line">driver.find_element_by_css_selector(<span class="string">'.prefpanelgo'</span>).click()</span><br><span class="line"><span class="comment">#接收弹窗，为了方便查看清楚，这里分成了三步，实际可以直接写成:driver.switch_to.alert.accept()</span></span><br><span class="line">submit=driver.switch_to.alert</span><br><span class="line">sleep(<span class="number">3</span>)</span><br><span class="line">submit.accept()</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -493,7 +493,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -568,7 +568,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
