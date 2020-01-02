@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="需求当我们浏览器执行到错误时，我们希望把界面错误的信息截图保存，方便我们后续找出错误的原因，提供了get_screenshot_as_file() 示例例如尝试查找某个元素的id为abcd，当查找到时进行点击操作，若报异常则进行截图操作。get_screenshot_as_file()内直接跟存放截图的路径即可，相对路径或绝对路径均可以。12345678910from selenium impor">
+<meta name="description" content="需求当我们浏览器执行到错误时，我们希望把界面错误的信息截图保存，方便我们后续找出错误的原因，提供了get_screenshot_as_file() 示例例如尝试查找某个元素的id为abcd，当查找到时进行点击操作，若报异常则进行截图操作。get_screenshot_as_file()内直接跟存放截图的路径即可，相对路径或绝对路径均可以。123456789from selenium import">
 <meta name="keywords" content="Python3+Selenium3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&#39;Python3+Selenium3自动化测试(八)窗口截图&#39;">
+<meta property="og:title" content="Python3+Selenium3自动化测试(八)窗口截图">
 <meta property="og:url" content="http://yoursite.com/2020/01/02/Python3-Selenium3自动化测试(八)窗口截图/index.html">
 <meta property="og:site_name" content="陈宏杰&#39;s 私人小巢">
-<meta property="og:description" content="需求当我们浏览器执行到错误时，我们希望把界面错误的信息截图保存，方便我们后续找出错误的原因，提供了get_screenshot_as_file() 示例例如尝试查找某个元素的id为abcd，当查找到时进行点击操作，若报异常则进行截图操作。get_screenshot_as_file()内直接跟存放截图的路径即可，相对路径或绝对路径均可以。12345678910from selenium impor">
+<meta property="og:description" content="需求当我们浏览器执行到错误时，我们希望把界面错误的信息截图保存，方便我们后续找出错误的原因，提供了get_screenshot_as_file() 示例例如尝试查找某个元素的id为abcd，当查找到时进行点击操作，若报异常则进行截图操作。get_screenshot_as_file()内直接跟存放截图的路径即可，相对路径或绝对路径均可以。123456789from selenium import">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-02T08:27:08.997Z">
+<meta property="og:updated_time" content="2020-01-02T08:30:31.352Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&#39;Python3+Selenium3自动化测试(八)窗口截图&#39;">
-<meta name="twitter:description" content="需求当我们浏览器执行到错误时，我们希望把界面错误的信息截图保存，方便我们后续找出错误的原因，提供了get_screenshot_as_file() 示例例如尝试查找某个元素的id为abcd，当查找到时进行点击操作，若报异常则进行截图操作。get_screenshot_as_file()内直接跟存放截图的路径即可，相对路径或绝对路径均可以。12345678910from selenium impor">
+<meta name="twitter:title" content="Python3+Selenium3自动化测试(八)窗口截图">
+<meta name="twitter:description" content="需求当我们浏览器执行到错误时，我们希望把界面错误的信息截图保存，方便我们后续找出错误的原因，提供了get_screenshot_as_file() 示例例如尝试查找某个元素的id为abcd，当查找到时进行点击操作，若报异常则进行截图操作。get_screenshot_as_file()内直接跟存放截图的路径即可，相对路径或绝对路径均可以。123456789from selenium import">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>'Python3+Selenium3自动化测试(八)窗口截图' | 陈宏杰's 私人小巢</title>
+  <title>Python3+Selenium3自动化测试(八)窗口截图 | 陈宏杰's 私人小巢</title>
   
 
 
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">'Python3+Selenium3自动化测试(八)窗口截图'</h1>
+          <h1 class="post-title" itemprop="name headline">Python3+Selenium3自动化测试(八)窗口截图</h1>
         
 
         <div class="post-meta">
@@ -363,7 +363,7 @@
 
       
         <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>当我们浏览器执行到错误时，我们希望把界面错误的信息截图保存，方便我们后续找出错误的原因，提供了get_screenshot_as_file()</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>例如尝试查找某个元素的id为abcd，当查找到时进行点击操作，若报异常则进行截图操作。get_screenshot_as_file()内直接跟存放截图的路径即可，相对路径或绝对路径均可以。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"></span><br><span class="line">driver = webdriver.Firefox()</span><br><span class="line">driver.get(<span class="string">'http://www.qq.com'</span>)</span><br><span class="line">print(driver.title)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    driver.find_element_by_id(<span class="string">"abcd"</span>).click()</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    driver.get_screenshot_as_file(<span class="string">"./error.png"</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>例如尝试查找某个元素的id为abcd，当查找到时进行点击操作，若报异常则进行截图操作。get_screenshot_as_file()内直接跟存放截图的路径即可，相对路径或绝对路径均可以。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Firefox()</span><br><span class="line">driver.get(<span class="string">'http://www.qq.com'</span>)</span><br><span class="line">print(driver.title)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    driver.find_element_by_id(<span class="string">"abcd"</span>).click()</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    driver.get_screenshot_as_file(<span class="string">"./error.png"</span>)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
